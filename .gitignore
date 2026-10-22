@@ -1,0 +1,10 @@
+# Només HTML/CSS/JS/imatges lleugeres. Res de dades d'alumnes ni vídeos.
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.zip
+*.env
+.env*
+node_modules/
+.DS_Store
