@@ -6,10 +6,4 @@ Cada push a `main` es publica a https://talaiot.eu/ibempren/
 
 ## Blog
 
-Per afegir un post, crea una carpeta `blog/AAAA-MM-DD-nom/` amb:
-
-- `titol.txt`: el títol del post.
-- `data.txt`: la data que es mostra (p. ex. `29/10/2026`).
-- `index.html`: el contingut del post (enllaços relatius, com a la resta).
-
-Fes commit i push a `main`. Una GitHub Action regenera `index.html` sola i el publica amb la llista de posts.
+Per fer un post: crea `blog/AAAA-MM-DD-nom/` amb `titol.txt`, `data.txt` i `index.html`, i fes push. La llista de l'inici s'actualitza sola.
