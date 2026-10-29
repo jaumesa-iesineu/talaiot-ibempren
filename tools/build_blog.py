@@ -48,13 +48,16 @@ def generar():
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Blog - Talaiot IBEmpren</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<p><a href="../index.html">&larr; Inici</a></p>
+<main class="blog">
+<p class="tornar"><a href="../index.html">&larr; Inici</a></p>
 <h1>Blog</h1>
-<ul>
+<ul class="llista-posts">
 {llista}
 </ul>
+</main>
 </body>
 </html>
 """

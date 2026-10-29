@@ -1,0 +1,115 @@
+/* Estils compartits de la pàgina del blog i dels posts. */
+
+:root {
+  --fons: #faf8f4;
+  --text: #2b2a28;
+  --text-suau: #6b6862;
+  --accent: #8a5a2b;
+  --linia: #e4dfd6;
+  --amplada: 42rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --fons: #1c1b19;
+    --text: #ece8e1;
+    --text-suau: #a7a197;
+    --accent: #d9a46b;
+    --linia: #3a3733;
+  }
+}
+
+:root[data-theme="dark"] {
+  --fons: #1c1b19;
+  --text: #ece8e1;
+  --text-suau: #a7a197;
+  --accent: #d9a46b;
+  --linia: #3a3733;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 1rem;
+  background: var(--fons);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
+}
+
+main,
+.blog {
+  max-width: var(--amplada);
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 1.9rem;
+  line-height: 1.2;
+  margin: 0.5rem 0 0.25rem;
+}
+
+a {
+  color: var(--accent);
+}
+
+.tornar {
+  margin: 1rem 0 2rem;
+  font-size: 0.95rem;
+}
+
+.data,
+small {
+  color: var(--text-suau);
+  font-size: 0.9rem;
+}
+
+.llista-posts {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0 0;
+}
+
+.llista-posts li {
+  border-top: 1px solid var(--linia);
+  padding: 1rem 0;
+}
+
+.llista-posts li:last-child {
+  border-bottom: 1px solid var(--linia);
+}
+
+.llista-posts a {
+  font-size: 1.15rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.llista-posts a:hover {
+  text-decoration: underline;
+}
+
+.llista-posts small {
+  display: block;
+  margin-top: 0.2rem;
+}
+
+figure {
+  margin: 1.5rem 0;
+}
+
+figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+figcaption {
+  color: var(--text-suau);
+  font-size: 0.9rem;
+  margin-top: 0.4rem;
+}
