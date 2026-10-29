@@ -1,0 +1,278 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 860" width="100%" height="100%" font-family="system-ui, -apple-system, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <linearGradient id="fovGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22c55e" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#22c55e" stop-opacity="0.05" />
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#000000" flood-opacity="0.35" />
+    </filter>
+    <marker id="arrowBlue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#38bdf8" />
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#4ade80" />
+    </marker>
+    <marker id="arrowPurple" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#c084fc" />
+    </marker>
+    <marker id="arrowAmber" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#fbbf24" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1440" height="860" fill="url(#bgGrad)" />
+
+  <!-- Header Banner -->
+  <rect x="30" y="20" width="1380" height="60" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1.5" filter="url(#shadow)" />
+  <text x="55" y="58" font-size="28" font-weight="800" fill="#f8fafc" letter-spacing="1">Tal<tspan fill="#38bdf8">AI</tspan>ot</text>
+  <text x="180" y="56" font-size="15" font-weight="500" fill="#94a3b8">|   Smart Classroom AI Vision Architecture + Commercial Tiers</text>
+  <rect x="1220" y="34" width="165" height="32" rx="16" fill="#0f172a" stroke="#38bdf8" stroke-width="1" />
+  <text x="1302" y="55" font-size="12" font-weight="600" fill="#38bdf8" text-anchor="middle">PoE + Edge AI System</text>
+
+  <!-- ========================================== -->
+  <!-- COLUMN 1: PLANS / TIERS (LEFT)             -->
+  <!-- ========================================== -->
+  <rect x="30" y="100" width="300" height="730" rx="16" fill="url(#cardGrad)" stroke="#14b8a6" stroke-width="2" filter="url(#shadow)" />
+  <rect x="30" y="100" width="300" height="44" rx="16" fill="#0d9488" />
+  <text x="180" y="128" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="1">1. PLANS (PRODUCT TIERS)</text>
+
+  <!-- Tier 1: Petite -->
+  <rect x="50" y="165" width="260" height="190" rx="12" fill="#0f172a" stroke="#475569" stroke-width="1.5" />
+  <rect x="50" y="165" width="260" height="36" rx="12" fill="#1e293b" />
+  <text x="180" y="189" font-size="16" font-weight="800" fill="#cbd5e1" text-anchor="middle">PETITE (Basic / Low-Cost)</text>
+  <text x="68" y="228" font-size="12" fill="#94a3b8">- Minim de cameres per cobrir</text>
+  <text x="78" y="246" font-size="12" fill="#94a3b8">l'aula (minimum cameras)</text>
+  <text x="68" y="276" font-size="12" fill="#94a3b8">- Alguns pupitres es poden</text>
+  <text x="78" y="294" font-size="12" fill="#94a3b8">veure en fila / borrosos</text>
+  <text x="78" y="314" font-size="11" fill="#64748b">(Partial occlusion on back rows)</text>
+
+  <!-- Tier 2: Plus -->
+  <rect x="50" y="380" width="260" height="195" rx="12" fill="#042f2e" stroke="#2dd4bf" stroke-width="2" />
+  <rect x="50" y="380" width="260" height="36" rx="12" fill="#0f766e" />
+  <text x="180" y="404" font-size="16" font-weight="800" fill="#ffffff" text-anchor="middle">PLUS (Recommended)</text>
+  <text x="68" y="445" font-size="12" font-weight="600" fill="#99f6e4">- Cobreix perfectament tot</text>
+  <text x="78" y="463" font-size="12" font-weight="600" fill="#99f6e4">l'aula (100% desk coverage)</text>
+  <text x="68" y="495" font-size="12" font-weight="600" fill="#5eead4">- Inclou estudi / aula</text>
+  <text x="78" y="513" font-size="11" fill="#99f6e4">(Custom room coverage study)</text>
+  <rect x="75" y="532" width="210" height="24" rx="12" fill="#115e59" />
+  <text x="180" y="548" font-size="11" font-weight="700" fill="#5eead4" text-anchor="middle">BEST VALUE / PERFECTE</text>
+
+  <!-- Tier 3: Ultimate -->
+  <rect x="50" y="600" width="260" height="205" rx="12" fill="#1e1b4b" stroke="#a855f7" stroke-width="2" />
+  <rect x="50" y="600" width="260" height="36" rx="12" fill="#6b21a8" />
+  <text x="180" y="624" font-size="16" font-weight="800" fill="#f3e8ff" text-anchor="middle">ULTIMATE (Premium)</text>
+  <text x="68" y="665" font-size="12" font-weight="600" fill="#e9d5ff">- Tot lo del pla Plus inclòs</text>
+  <text x="68" y="698" font-size="13" font-weight="700" fill="#c084fc">- Assistencia 24/7</text>
+  <text x="68" y="728" font-size="13" font-weight="700" fill="#c084fc">- Suport prioritari</text>
+  <text x="78" y="750" font-size="11" fill="#a855f7">(Priority SLA + full coverage)</text>
+
+
+  <!-- ========================================== -->
+  <!-- COLUMN 2: AULA TOPOLOGY (CENTER-LEFT)      -->
+  <!-- ========================================== -->
+  <rect x="355" y="100" width="350" height="730" rx="16" fill="url(#cardGrad)" stroke="#3b82f6" stroke-width="2" filter="url(#shadow)" />
+  <rect x="355" y="100" width="350" height="44" rx="16" fill="#1d4ed8" />
+  <text x="530" y="128" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="1">2. AULA (CLASSROOM SETUP)</text>
+
+  <!-- Front Desk Area -->
+  <rect x="375" y="165" width="310" height="85" rx="10" fill="#0f172a" stroke="#475569" stroke-dasharray="4 4" />
+  <text x="390" y="185" font-size="11" font-weight="700" fill="#94a3b8">ZONA PROFESSOR (TEACHER DESK)</text>
+
+  <!-- Tablet de TalAIot -->
+  <rect x="390" y="196" width="150" height="42" rx="6" fill="#022c22" stroke="#22c55e" stroke-width="1.5" />
+  <text x="465" y="214" font-size="12" font-weight="700" fill="#4ade80" text-anchor="middle">Tablet de TalAIot</text>
+  <text x="465" y="229" font-size="9" fill="#86efac" text-anchor="middle">Conectada a Xarxa I/O Server</text>
+
+  <!-- PC AULA -->
+  <rect x="555" y="196" width="115" height="42" rx="6" fill="#1e293b" stroke="#64748b" stroke-width="1.5" />
+  <text x="612" y="221" font-size="12" font-weight="700" fill="#e2e8f0" text-anchor="middle">PC AULA</text>
+
+  <!-- Classroom Desks Grid + FOV Cones -->
+  <rect x="375" y="270" width="310" height="330" rx="12" fill="#090d16" stroke="#1e293b" stroke-width="2" />
+  
+  <!-- Overlapping Camera FOV Cones -->
+  <polygon points="395,575 480,295 655,345" fill="url(#fovGrad)" />
+  <polygon points="665,575 580,295 405,345" fill="url(#fovGrad)" />
+  <polygon points="395,420 655,310 655,530" fill="url(#fovGrad)" />
+  <polygon points="665,420 405,310 405,530" fill="url(#fovGrad)" />
+
+  <!-- 4x4 Student Desks Grid -->
+  <g fill="#1e293b" stroke="#475569" stroke-width="1.5">
+    <rect x="430" y="315" width="36" height="28" rx="4" />
+    <rect x="482" y="315" width="36" height="28" rx="4" />
+    <rect x="534" y="315" width="36" height="28" rx="4" />
+    <rect x="586" y="315" width="36" height="28" rx="4" />
+
+    <rect x="430" y="370" width="36" height="28" rx="4" />
+    <rect x="482" y="370" width="36" height="28" rx="4" />
+    <rect x="534" y="370" width="36" height="28" rx="4" />
+    <rect x="586" y="370" width="36" height="28" rx="4" />
+
+    <rect x="430" y="425" width="36" height="28" rx="4" />
+    <rect x="482" y="425" width="36" height="28" rx="4" />
+    <rect x="534" y="425" width="36" height="28" rx="4" />
+    <rect x="586" y="425" width="36" height="28" rx="4" />
+
+    <rect x="430" y="480" width="36" height="28" rx="4" />
+    <rect x="482" y="480" width="36" height="28" rx="4" />
+    <rect x="534" y="480" width="36" height="28" rx="4" />
+    <rect x="586" y="480" width="36" height="28" rx="4" />
+  </g>
+
+  <!-- 4 PoE Cameras (C1-C4) -->
+  <circle cx="395" cy="420" r="15" fill="#0284c7" stroke="#38bdf8" stroke-width="2" />
+  <text x="395" y="425" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">C2</text>
+
+  <circle cx="665" cy="420" r="15" fill="#0284c7" stroke="#38bdf8" stroke-width="2" />
+  <text x="665" y="425" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">C3</text>
+
+  <circle cx="400" cy="565" r="15" fill="#0284c7" stroke="#38bdf8" stroke-width="2" />
+  <text x="400" y="570" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">C1</text>
+
+  <circle cx="660" cy="565" r="15" fill="#0284c7" stroke="#38bdf8" stroke-width="2" />
+  <text x="660" y="570" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">C4</text>
+
+  <!-- Cabling Box -->
+  <rect x="375" y="620" width="310" height="185" rx="10" fill="#0f172a" stroke="#1e293b" />
+  <text x="530" y="655" font-size="14" font-weight="800" fill="#38bdf8" text-anchor="middle">PoE ETHERNET CABLING</text>
+  <text x="530" y="680" font-size="13" font-weight="700" fill="#4ade80" text-anchor="middle">QUICK CONNECT SYSTEM</text>
+  <text x="530" y="715" font-size="11" fill="#94a3b8" text-anchor="middle">Single cable per camera carries both</text>
+  <text x="530" y="733" font-size="11" fill="#94a3b8" text-anchor="middle">electric power and HD video stream</text>
+  <text x="530" y="751" font-size="11" fill="#94a3b8" text-anchor="middle">directly to the PoE Switch.</text>
+
+
+  <!-- ========================================== -->
+  <!-- COLUMN 3: EDGE AI & NETWORK (CENTER-RIGHT) -->
+  <!-- ========================================== -->
+  <rect x="730" y="100" width="320" height="730" rx="16" fill="url(#cardGrad)" stroke="#a855f7" stroke-width="2" filter="url(#shadow)" />
+  <rect x="730" y="100" width="320" height="44" rx="16" fill="#7e22ce" />
+  <text x="890" y="128" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="1">3. EDGE AI + NETWORK</text>
+
+  <!-- PoE Switch -->
+  <rect x="755" y="175" width="270" height="135" rx="12" fill="#0f172a" stroke="#38bdf8" stroke-width="2" />
+  <text x="890" y="205" font-size="16" font-weight="800" fill="#38bdf8" text-anchor="middle">PoE SWITCH</text>
+  <text x="890" y="227" font-size="11" fill="#cbd5e1" text-anchor="middle">Connects C1-C4 via PoE Ethernet</text>
+  <g fill="#1e293b" stroke="#38bdf8" stroke-width="1.5">
+    <rect x="780" y="250" width="30" height="24" rx="3" />
+    <rect x="820" y="250" width="30" height="24" rx="3" />
+    <rect x="860" y="250" width="30" height="24" rx="3" />
+    <rect x="900" y="250" width="30" height="24" rx="3" />
+    <rect x="950" y="250" width="48" height="24" rx="3" stroke="#4ade80" />
+  </g>
+  <text x="795" y="266" font-size="9" fill="#38bdf8" text-anchor="middle">C1</text>
+  <text x="835" y="266" font-size="9" fill="#38bdf8" text-anchor="middle">C2</text>
+  <text x="875" y="266" font-size="9" fill="#38bdf8" text-anchor="middle">C3</text>
+  <text x="915" y="266" font-size="9" fill="#38bdf8" text-anchor="middle">C4</text>
+  <text x="974" y="266" font-size="9" fill="#4ade80" text-anchor="middle">LAN</text>
+
+  <!-- Local Server IA -->
+  <rect x="755" y="375" width="270" height="210" rx="12" fill="#1e1b4b" stroke="#c084fc" stroke-width="2.5" />
+  <text x="890" y="412" font-size="18" font-weight="800" fill="#f3e8ff" text-anchor="middle">LOCAL SERVER IA</text>
+  <rect x="775" y="428" width="230" height="34" rx="6" fill="#3b0764" stroke="#a855f7" />
+  <text x="890" y="450" font-size="13" font-weight="700" fill="#e9d5ff" text-anchor="middle">PROCESA IMATGES (AI Vision)</text>
+  <text x="890" y="495" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">Hardware: Mac Mini or similar</text>
+  <text x="890" y="525" font-size="11" fill="#cbd5e1" text-anchor="middle">Real-time local image processing</text>
+  <text x="890" y="545" font-size="11" fill="#94a3b8" text-anchor="middle">for privacy and zero cloud latency</text>
+
+  <!-- Fixed IP Network -->
+  <rect x="755" y="645" width="270" height="160" rx="12" fill="#022c22" stroke="#22c55e" stroke-width="2" />
+  <text x="890" y="685" font-size="15" font-weight="800" fill="#4ade80" text-anchor="middle">CONECTAT XARXA IP FIXA</text>
+  <text x="890" y="715" font-size="12" fill="#a7f3d0" text-anchor="middle">Static IP on School LAN</text>
+  <text x="890" y="745" font-size="11" fill="#6ee7b7" text-anchor="middle">Syncs with Tablet de TalAIot</text>
+  <text x="890" y="765" font-size="11" fill="#6ee7b7" text-anchor="middle">and PC AULA in real time</text>
+
+
+  <!-- ========================================== -->
+  <!-- COLUMN 4: BUSINESS, PROMOS & SLA (RIGHT)   -->
+  <!-- ========================================== -->
+  <rect x="1075" y="100" width="335" height="730" rx="16" fill="url(#cardGrad)" stroke="#f59e0b" stroke-width="2" filter="url(#shadow)" />
+  <rect x="1075" y="100" width="335" height="44" rx="16" fill="#d97706" />
+  <text x="1242" y="128" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="1">4. COMERCIAL + OFERTES</text>
+
+  <!-- Multi-year Commitment Promos (1 any, 2 any, 3 any) -->
+  <rect x="1095" y="165" width="295" height="175" rx="10" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5" />
+  <text x="1242" y="190" font-size="13" font-weight="800" fill="#38bdf8" text-anchor="middle">COMPROMIS ANUAL (PROMOCIONS)</text>
+  
+  <rect x="1110" y="205" width="265" height="34" rx="6" fill="#1e293b" />
+  <text x="1125" y="227" font-size="12" font-weight="700" fill="#f8fafc">1 Any:</text>
+  <text x="1180" y="227" font-size="12" fill="#cbd5e1">Contracte base anual</text>
+
+  <rect x="1110" y="248" width="265" height="34" rx="6" fill="#022c22" stroke="#22c55e" stroke-width="1" />
+  <text x="1125" y="270" font-size="12" font-weight="700" fill="#4ade80">2 Anys:</text>
+  <text x="1185" y="270" font-size="12" font-weight="600" fill="#a7f3d0">Instal-lacio gratis!</text>
+
+  <rect x="1110" y="291" width="265" height="34" rx="6" fill="#3b0764" stroke="#c084fc" stroke-width="1" />
+  <text x="1125" y="313" font-size="12" font-weight="700" fill="#e9d5ff">3 Anys:</text>
+  <text x="1185" y="313" font-size="12" font-weight="600" fill="#f3e8ff">3 mesos gratis!</text>
+
+  <!-- Billing Rules -->
+  <rect x="1095" y="360" width="295" height="195" rx="10" fill="#0f172a" stroke="#f59e0b" stroke-width="1.5" />
+  <text x="1242" y="385" font-size="13" font-weight="800" fill="#fbbf24" text-anchor="middle">CONDICIONS DE FACTURACIO</text>
+  <text x="1115" y="415" font-size="12" font-weight="700" fill="#fde68a">- CONTRACTE / ANY</text>
+  <text x="1115" y="445" font-size="12" font-weight="700" fill="#fde68a">- PAGO MENSUAL (Quota fixa)</text>
+  <text x="1115" y="480" font-size="12" font-weight="700" fill="#f87171">- INSTALL / UNINSTALL  --> COBRAM</text>
+  <text x="1115" y="510" font-size="12" font-weight="700" fill="#f87171">- DESPERFECTES         --> COBRAM</text>
+  <text x="1125" y="535" font-size="10" fill="#94a3b8">(Hardware damages or unscheduled removals billed)</text>
+
+  <!-- Pricing Psychology (Stick Figures + 3 Boxes) -->
+  <rect x="1095" y="575" width="295" height="230" rx="10" fill="#0f172a" stroke="#64748b" stroke-width="1.5" />
+  <text x="1242" y="600" font-size="13" font-weight="800" fill="#e2e8f0" text-anchor="middle">ESTRATEGIA D'ELECCIO DE PLANS</text>
+
+  <!-- Two Customer Icons (Stick figures at top) -->
+  <circle cx="1210" cy="630" r="9" fill="none" stroke="#fbbf24" stroke-width="2" />
+  <line x1="1210" y1="639" x2="1210" y2="665" stroke="#fbbf24" stroke-width="2" />
+  <line x1="1198" y1="648" x2="1222" y2="648" stroke="#fbbf24" stroke-width="2" />
+
+  <circle cx="1275" cy="630" r="9" fill="none" stroke="#fbbf24" stroke-width="2" />
+  <line x1="1275" y1="639" x2="1275" y2="665" stroke="#fbbf24" stroke-width="2" />
+  <line x1="1263" y1="648" x2="1287" y2="648" stroke="#fbbf24" stroke-width="2" />
+
+  <!-- Arrows pointing strictly to PERFECTE and PREMIUM -->
+  <line x1="1210" y1="672" x2="1240" y2="712" stroke="#fbbf24" stroke-width="2" marker-end="url(#arrowAmber)" />
+  <line x1="1275" y1="672" x2="1330" y2="712" stroke="#fbbf24" stroke-width="2" marker-end="url(#arrowAmber)" />
+
+  <!-- 3 Plan Boxes -->
+  <!-- Box 1: Low-Cost -->
+  <rect x="1110" y="720" width="80" height="65" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1.5" />
+  <text x="1150" y="742" font-size="10" font-weight="700" fill="#94a3b8" text-anchor="middle">LOW-COST</text>
+  <text x="1150" y="760" font-size="9" fill="#64748b" text-anchor="middle">(Petite)</text>
+  <text x="1150" y="775" font-size="8" fill="#475569" text-anchor="middle">Decoy Tier</text>
+
+  <!-- Box 2: Perfecte -->
+  <rect x="1202" y="720" width="80" height="65" rx="6" fill="#042f2e" stroke="#2dd4bf" stroke-width="2" />
+  <text x="1242" y="742" font-size="10" font-weight="800" fill="#5eead4" text-anchor="middle">PERFECTE</text>
+  <text x="1242" y="760" font-size="9" fill="#99f6e4" text-anchor="middle">(Plus)</text>
+  <text x="1242" y="775" font-size="8" fill="#2dd4bf" text-anchor="middle">Target Choice</text>
+
+  <!-- Box 3: Premium -->
+  <rect x="1295" y="720" width="80" height="65" rx="6" fill="#1e1b4b" stroke="#c084fc" stroke-width="2" />
+  <text x="1335" y="742" font-size="10" font-weight="800" fill="#e9d5ff" text-anchor="middle">PREMIUM</text>
+  <text x="1335" y="760" font-size="9" fill="#d8b4fe" text-anchor="middle">(Ultimate)</text>
+  <text x="1335" y="775" font-size="8" fill="#c084fc" text-anchor="middle">High-Margin</text>
+
+
+  <!-- ========================================== -->
+  <!-- SYSTEM DATA FLOW ARROWS                    -->
+  <!-- ========================================== -->
+  <!-- Cameras to PoE Switch -->
+  <path d="M 685 680 L 718 680 L 718 242 L 748 242" fill="none" stroke="#38bdf8" stroke-width="3" marker-end="url(#arrowBlue)" />
+  
+  <!-- PoE Switch to Local Server IA -->
+  <line x1="890" y1="310" x2="890" y2="365" stroke="#c084fc" stroke-width="3" marker-end="url(#arrowPurple)" />
+
+  <!-- Local Server IA to Fixed IP Network -->
+  <line x1="890" y1="585" x2="890" y2="635" stroke="#4ade80" stroke-width="3" marker-end="url(#arrowGreen)" />
+
+  <!-- Fixed IP Network back to Tablet & PC AULA -->
+  <path d="M 755 725 L 708 725 L 708 215 L 678 215" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-dasharray="6 4" marker-end="url(#arrowGreen)" />
+</svg>
