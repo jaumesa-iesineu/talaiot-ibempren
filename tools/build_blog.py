@@ -6,6 +6,8 @@ Cada post és una carpeta amb el nom de la data (AAAA-MM-DD-nom) i conté:
   data.txt   -> la data que es mostra (p. ex. 29/10/2026)
   index.html -> el contingut del post
 
+La pàgina d'inici del projecte (index.html de l'arrel) és aquesta llista.
+
 Ús: python3 tools/build_blog.py
 """
 
@@ -14,6 +16,7 @@ from pathlib import Path
 
 ARREL = Path(__file__).resolve().parent.parent
 BLOG = ARREL / "blog"
+SORTIDA = ARREL / "index.html"
 
 
 def llegir(carpeta, fitxer):
@@ -36,7 +39,7 @@ def generar():
         titol = html.escape(llegir(carpeta, "titol.txt"))
         data = html.escape(llegir(carpeta, "data.txt"))
         items.append(
-            f'  <li><a href="{carpeta.name}/index.html">{titol}</a> '
+            f'  <li><a href="blog/{carpeta.name}/index.html">{titol}</a> '
             f"<small>{data}</small></li>"
         )
 
@@ -47,13 +50,12 @@ def generar():
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Blog - Talaiot IBEmpren</title>
-<link rel="stylesheet" href="style.css">
+<title>Talaiot - IBEmpren</title>
+<link rel="stylesheet" href="blog/style.css">
 </head>
 <body>
 <main class="blog">
-<p class="tornar"><a href="../index.html">&larr; Inici</a></p>
-<h1>Blog</h1>
+<h1>Talaiot</h1>
 <ul class="llista-posts">
 {llista}
 </ul>
@@ -61,8 +63,8 @@ def generar():
 </body>
 </html>
 """
-    (BLOG / "index.html").write_text(pagina, encoding="utf-8")
-    print(f"blog/index.html generat amb {len(items)} post(s).")
+    SORTIDA.write_text(pagina, encoding="utf-8")
+    print(f"index.html generat amb {len(items)} post(s).")
 
 
 if __name__ == "__main__":
