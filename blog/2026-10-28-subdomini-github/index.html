@@ -14,25 +14,36 @@
     <h1>Subdomini, repositori i GitHub Actions</h1>
     <p class="data">29/10/2026</p>
 
-    <p>Aquesta setmana hem fet una passa important en la infraestructura digital de <strong>Tal<span style="color: #a855f7; font-weight: 800;">AI</span>ot</strong>: hem creat el subdomini oficial <code>ibempren.talaiot.eu</code> i hem configurat el nostre flux de treball automatitzat mitjançant GitHub i GitHub Actions.</p>
+    <p>Aquesta setmana hem fet una passa important en la infraestructura digital de <strong>Tal<span
+          style="color: #a855f7; font-weight: 800;">AI</span>ot</strong>: hem creat el subdomini oficial
+      <code>ibempren.talaiot.eu</code> i hem configurat el nostre flux de treball automatitzat mitjançant GitHub i
+      GitHub Actions.</p>
 
     <h2>Com col·laborem dins l'equip</h2>
-    <p>Per garantir que tots els membres de l'equip puguin aportar canvis de manera àgil i sense conflictes, hem establert un protocol basat en Git:</p>
+    <p>Per garantir que tots els membres de l'equip puguin aportar canvis de manera àgil i sense conflictes, hem
+      establert un protocol basat en Git:</p>
     <ol class="passos">
       <li><strong>Desenvolupament local:</strong> Editem i provem els fitxers directament al nostre ordinador.</li>
-      <li><strong>Publicació:</strong> Fem <code>commit</code> dels canvis i fem <code>push</code> cap a la branca principal <code>main</code>.</li>
-      <li><strong>Desplegament automàtic:</strong> El servidor de producció sincronitza els continguts de manera instantània.</li>
+      <li><strong>Publicació:</strong> Fem <code>commit</code> dels canvis i fem <code>push</code> cap a la branca
+        principal <code>main</code>.</li>
+      <li><strong>Desplegament automàtic:</strong> El servidor de producció sincronitza els continguts de manera
+        instantània.</li>
     </ol>
 
     <div class="avis">
-      <strong>Consell per a l'equip:</strong> Abans de començar qualsevol tasca, cal executar sempre <code>git pull</code> per treballar sobre la versió més recent i evitar divergències a la branca principal.
+      <strong>Consell per a l'equip:</strong> Abans de començar qualsevol tasca, cal executar sempre
+      <code>git pull</code> per treballar sobre la versió més recent i evitar divergències a la branca principal.
     </div>
 
     <h2>Automatització amb GitHub Actions</h2>
-    <p>Hem afegit un flux de treball automatitzat (<em>workflow</em>) que s'executa a cada nou <em>push</em>. Quan qualsevol membre publica una entrada a la carpeta <code>blog/</code>, un script en Python (<code>tools/build_blog.py</code>) regenera l'arxiu <code>index.html</code> de l'arrel amb la llista cronològica actualitzada, assegurant que la pàgina principal estigui sempre al dia sense intervenció manual.</p>
+    <p>Hem afegit un flux de treball automatitzat (<em>workflow</em>) que s'executa a cada nou <em>push</em>. Quan
+      qualsevol membre publica una entrada a la carpeta <code>blog/</code>, un script en Python
+      (<code>tools/build_blog.py</code>) regenera l'arxiu <code>index.html</code> de l'arrel amb la llista cronològica
+      actualitzada, assegurant que la pàgina principal estigui sempre al dia sense intervenció manual.</p>
 
     <h2>Propers passos</h2>
-    <p>Amb la infraestructura d'allotjament i integració contínua operativa, ens centrarem en definir el protocol de seguretat de les gravacions d'examen i les recompenses ètiques per a les proves pilot.</p>
+    <p>Amb la infraestructura d'allotjament i integració contínua operativa, ens centrarem en definir el protocol de
+      seguretat de les gravacions d'examen i les recompenses ètiques per a les proves pilot.</p>
   </main>
 </body>
 
