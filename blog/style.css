@@ -9,6 +9,14 @@
   --amplada: 42rem;
 }
 
+:root[data-theme="light"] {
+  --fons: #faf8f4;
+  --text: #2b2a28;
+  --text-suau: #6b6862;
+  --accent: #8a5a2b;
+  --linia: #e4dfd6;
+}
+
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --fons: #1c1b19;
@@ -56,9 +64,77 @@ a {
   color: var(--accent);
 }
 
+.nav-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0 1.5rem;
+}
+
+.nav-top .tornar,
+.nav-top h1 {
+  margin: 0;
+}
+
 .tornar {
   margin: 1rem 0 2rem;
   font-size: 0.95rem;
+}
+
+.theme-toggle {
+  background: var(--linia);
+  border: 1px solid var(--linia);
+  color: var(--text);
+  border-radius: 8px;
+  width: 2.3rem;
+  height: 2.3rem;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent);
+  transform: scale(1.05);
+}
+
+.theme-toggle:active {
+  transform: scale(0.95);
+}
+
+.theme-toggle svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  stroke: var(--text);
+}
+
+:root:not([data-theme="dark"]) .theme-toggle .icon-light {
+  display: none;
+}
+
+:root:not([data-theme="dark"]) .theme-toggle .icon-dark {
+  display: block;
+}
+
+:root[data-theme="dark"] .theme-toggle .icon-dark {
+  display: none;
+}
+
+:root[data-theme="dark"] .theme-toggle .icon-light {
+  display: block;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]):not([data-theme="dark"]) .theme-toggle .icon-dark {
+    display: none;
+  }
+
+  :root:not([data-theme="light"]):not([data-theme="dark"]) .theme-toggle .icon-light {
+    display: block;
+  }
 }
 
 .data,
