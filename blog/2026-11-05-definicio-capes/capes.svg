@@ -1,0 +1,306 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" width="100%" height="100%" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <defs>
+    <!-- Background gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16" />
+      <stop offset="50%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#111827" />
+    </linearGradient>
+
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a855f7" />
+      <stop offset="100%" stop-color="#7c3aed" />
+    </linearGradient>
+
+    <!-- Subtle Shadows -->
+    <filter id="softShadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#000000" flood-opacity="0.45" />
+    </filter>
+
+    <!-- Markers -->
+    <marker id="arrowPurple" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#a855f7" />
+    </marker>
+    <marker id="arrowSky" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#38bdf8" />
+    </marker>
+    <marker id="arrowSlate" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#64748b" />
+    </marker>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1200" height="760" fill="url(#bgGrad)" />
+
+  <!-- Grid overlay pattern for technical feel -->
+  <g opacity="0.07" stroke="#94a3b8" stroke-width="1">
+    <line x1="60" y1="0" x2="60" y2="760" />
+    <line x1="180" y1="0" x2="180" y2="760" />
+    <line x1="300" y1="0" x2="300" y2="760" />
+    <line x1="420" y1="0" x2="420" y2="760" />
+    <line x1="540" y1="0" x2="540" y2="760" />
+    <line x1="660" y1="0" x2="660" y2="760" />
+    <line x1="780" y1="0" x2="780" y2="760" />
+    <line x1="900" y1="0" x2="900" y2="760" />
+    <line x1="1020" y1="0" x2="1020" y2="760" />
+    <line x1="1140" y1="0" x2="1140" y2="760" />
+  </g>
+
+  <!-- ==================================================== -->
+  <!-- HEADER BAR                                           -->
+  <!-- ==================================================== -->
+  <g transform="translate(40, 24)">
+    <rect width="1120" height="64" rx="14" fill="#1e293b" stroke="#334155" stroke-width="1.2" filter="url(#softShadow)" />
+
+    <!-- Project Logo: TalAIot with AI in purple -->
+    <text x="24" y="41" font-size="28" font-weight="900" fill="#f8fafc" letter-spacing="1">Tal<tspan fill="#a855f7">AI</tspan>ot</text>
+    <text x="148" y="39" font-size="14" font-weight="500" fill="#94a3b8">| Sistema de Detecció Intel·ligent en Exàmens Presencials</text>
+
+    <!-- Tag on right -->
+    <rect x="910" y="16" width="186" height="32" rx="16" fill="#2e1065" stroke="#a855f7" stroke-width="1.2" />
+    <circle cx="928" cy="32" r="5" fill="#a855f7" />
+    <text x="942" y="37" font-size="12" font-weight="700" fill="#e9d5ff" letter-spacing="0.5">ARQUITECTURA V2</text>
+  </g>
+
+  <!-- ==================================================== -->
+  <!-- PREVIOUS VS NEW APPROACH (PROBLEM & SOLUTION CONTEXT) -->
+  <!-- ==================================================== -->
+  <g transform="translate(40, 104)">
+    <!-- Failed Model Box -->
+    <rect width="545" height="74" rx="12" fill="#1e1822" stroke="#ef4444" stroke-width="1.2" stroke-opacity="0.6" filter="url(#softShadow)" />
+    <circle cx="32" cy="37" r="14" fill="#450a0a" stroke="#ef4444" stroke-width="1.2" />
+    <text x="32" y="42" font-size="14" font-weight="900" fill="#f87171" text-anchor="middle">✕</text>
+    <text x="58" y="29" font-size="13" font-weight="700" fill="#fca5a5">Model Inicial Directe (Descartat)</text>
+    <text x="58" y="48" font-size="12" fill="#94a3b8">Classificador monolític basat únicament en Keypoints 2D</text>
+    <rect x="420" y="21" width="105" height="32" rx="8" fill="#7f1d1d" stroke="#ef4444" stroke-width="1" />
+    <text x="472" y="41" font-size="11" font-weight="800" fill="#fecaca" text-anchor="middle">50% D'ENCERT</text>
+
+    <!-- New Architecture Box -->
+    <g transform="translate(575, 0)">
+      <rect width="545" height="74" rx="12" fill="#1a1c30" stroke="#a855f7" stroke-width="1.4" filter="url(#softShadow)" />
+      <circle cx="32" cy="37" r="14" fill="#2e1065" stroke="#a855f7" stroke-width="1.2" />
+      <text x="32" y="42" font-size="14" font-weight="900" fill="#c084fc" text-anchor="middle">✓</text>
+      <text x="58" y="29" font-size="13" font-weight="700" fill="#d8b4fe">Nova Solució: Arquitectura per Capes</text>
+      <text x="58" y="48" font-size="12" fill="#94a3b8">Control d'aula + SAM3DBody (Keypoints 3D) a moviment</text>
+      <rect x="408" y="21" width="117" height="32" rx="8" fill="#3b0764" stroke="#c084fc" stroke-width="1" />
+      <text x="466" y="41" font-size="11" font-weight="800" fill="#f3e8ff" text-anchor="middle">TEST EN CURS</text>
+    </g>
+  </g>
+
+  <!-- ==================================================== -->
+  <!-- MAIN ARCHITECTURE PIPELINE                           -->
+  <!-- ==================================================== -->
+
+  <!-- STEP 0: SENSOR INPUT (CEILING CAMERAS) -->
+  <g transform="translate(40, 202)">
+    <rect width="230" height="515" rx="16" fill="url(#cardGrad)" stroke="#475569" stroke-width="1.5" filter="url(#softShadow)" />
+
+    <!-- Top Badge -->
+    <rect x="20" y="20" width="190" height="30" rx="8" fill="#0f172a" stroke="#64748b" stroke-width="1" />
+    <text x="115" y="40" font-size="11" font-weight="700" fill="#94a3b8" text-anchor="middle" letter-spacing="1">CAPTURA ZENITAL</text>
+
+    <text x="115" y="80" font-size="17" font-weight="800" fill="#f8fafc" text-anchor="middle">Càmeres de Sostre</text>
+    <text x="115" y="102" font-size="12" fill="#64748b" text-anchor="middle">Instal·lació superior a l'aula</text>
+
+    <!-- Minimalist Camera Illustration -->
+    <g transform="translate(65, 126)">
+      <!-- Ceiling line -->
+      <line x1="-15" y1="0" x2="115" y2="0" stroke="#64748b" stroke-width="3" stroke-linecap="round" />
+      <!-- Mount bracket -->
+      <rect x="43" y="0" width="14" height="16" rx="2" fill="#475569" />
+      <!-- Camera body -->
+      <rect x="22" y="16" width="56" height="32" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5" />
+      <circle cx="50" cy="32" r="9" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5" />
+      <circle cx="50" cy="32" r="4" fill="#38bdf8" />
+      <!-- Field of View Cone -->
+      <polygon points="50,48 0,118 100,118" fill="#38bdf8" fill-opacity="0.12" stroke="#38bdf8" stroke-width="1" stroke-dasharray="3 3" />
+      <text x="50" y="105" font-size="9" fill="#38bdf8" text-anchor="middle" font-weight="600">FOV AULA</text>
+    </g>
+
+    <!-- Features -->
+    <g transform="translate(18, 280)">
+      <rect width="194" height="52" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1" />
+      <text x="14" y="24" font-size="11" font-weight="700" fill="#e2e8f0">• Visió Global</text>
+      <text x="14" y="40" font-size="10" fill="#94a3b8">Cobreix múltiples pupitres</text>
+
+      <rect y="64" width="194" height="52" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1" />
+      <text x="14" y="88" font-size="11" font-weight="700" fill="#e2e8f0">• Angle Zenital</text>
+      <text x="14" y="104" font-size="10" fill="#94a3b8">Minimitza oclusions visuals</text>
+
+      <rect y="128" width="194" height="52" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1" />
+      <text x="14" y="152" font-size="11" font-weight="700" fill="#e2e8f0">• Flux de Vídeo Continu</text>
+      <text x="14" y="168" font-size="10" fill="#94a3b8">Frames constants en temps real</text>
+    </g>
+  </g>
+
+  <!-- Arrow Input -> Capa 0 -->
+  <path d="M 270 460 L 306 460" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arrowSky)" fill="none" />
+
+  <!-- STEP 1: CAPA 0 (CONTROL DE L'AULA) -->
+  <g transform="translate(315, 202)">
+    <rect width="405" height="515" rx="16" fill="url(#cardGrad)" stroke="#0284c7" stroke-width="2" filter="url(#softShadow)" />
+
+    <!-- Top Badge -->
+    <rect x="20" y="20" width="140" height="30" rx="8" fill="#082f49" stroke="#38bdf8" stroke-width="1" />
+    <text x="90" y="40" font-size="11" font-weight="800" fill="#38bdf8" text-anchor="middle" letter-spacing="1">CAPA 0</text>
+
+    <text x="175" y="41" font-size="17" font-weight="800" fill="#f8fafc">Control de l'Aula</text>
+    <text x="24" y="78" font-size="12" fill="#94a3b8">Comprensió de l'espai, detecció d'actors i estat dels llocs.</text>
+
+    <!-- Sub-module 0.1: Detecció de Transeünts -->
+    <g transform="translate(20, 96)">
+      <rect width="365" height="182" rx="12" fill="#09182a" stroke="#1e3a5f" stroke-width="1.2" />
+
+      <!-- Tag -->
+      <rect x="16" y="14" width="220" height="24" rx="6" fill="#0c4a6e" />
+      <text x="26" y="30" font-size="11" font-weight="700" fill="#7dd3fc">0.1 Detecció de Transeünts</text>
+
+      <text x="16" y="60" font-size="12.5" font-weight="600" fill="#f1f5f9">Filtrat d'agents mòbils a l'aula</text>
+      <text x="16" y="78" font-size="11" fill="#94a3b8">Identifica professors circulant o alumnes</text>
+      <text x="16" y="94" font-size="11" fill="#94a3b8">que s'aixequen o es mouen pel passadís.</text>
+
+      <!-- Visual indicator: Walkers filtered -->
+      <g transform="translate(16, 110)">
+        <rect width="333" height="56" rx="8" fill="#071b2f" stroke="#0369a1" stroke-width="1" stroke-dasharray="3 2" />
+        <circle cx="28" cy="28" r="12" fill="#0284c7" fill-opacity="0.2" stroke="#38bdf8" stroke-width="1" />
+        <path d="M 28 20 L 28 32 M 24 26 L 32 26 M 28 32 L 25 38 M 28 32 L 31 38" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round" />
+        <text x="50" y="25" font-size="11" font-weight="700" fill="#e0f2fe">Aïllament de soroll visual:</text>
+        <text x="50" y="42" font-size="10.5" fill="#7dd3fc">Evita falses alarmes provocades per moviments de pas</text>
+      </g>
+    </g>
+
+    <!-- Sub-module 0.2: Pupitres i Estudiants Actius -->
+    <g transform="translate(20, 296)">
+      <rect width="365" height="200" rx="12" fill="#09182a" stroke="#1e3a5f" stroke-width="1.2" />
+
+      <!-- Tag -->
+      <rect x="16" y="14" width="260" height="24" rx="6" fill="#0c4a6e" />
+      <text x="26" y="30" font-size="11" font-weight="700" fill="#7dd3fc">0.2 Pupitres &amp; Estudiants Actius</text>
+
+      <text x="16" y="60" font-size="12.5" font-weight="600" fill="#f1f5f9">Estat del lloc de feina en temps real</text>
+      <text x="16" y="78" font-size="11" fill="#94a3b8">Segmentació geomètrica de la taula de cada alumne.</text>
+
+      <!-- Status Chips -->
+      <g transform="translate(16, 92)">
+        <!-- Active Exam -->
+        <rect width="160" height="42" rx="8" fill="#064e3b" stroke="#10b981" stroke-width="1.2" />
+        <circle cx="20" cy="21" r="5" fill="#34d399" />
+        <text x="32" y="19" font-size="11" font-weight="700" fill="#a7f3d0">Fent l'examen</text>
+        <text x="32" y="33" font-size="9" fill="#6ee7b7">Estudiant actiu validat</text>
+
+        <!-- Inactive / Empty -->
+        <g transform="translate(172, 0)">
+          <rect width="161" height="42" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="1" />
+          <circle cx="20" cy="21" r="5" fill="#94a3b8" />
+          <text x="32" y="19" font-size="11" font-weight="700" fill="#cbd5e1">No fa examen</text>
+          <text x="32" y="33" font-size="9" fill="#94a3b8">Pupitre buit / inactiu</text>
+        </g>
+      </g>
+
+      <!-- Output from Layer 0 -->
+      <rect x="16" y="146" width="333" height="40" rx="8" fill="#082f49" stroke="#38bdf8" stroke-width="1" />
+      <text x="182" y="171" font-size="11" font-weight="700" fill="#e0f2fe" text-anchor="middle">Només els estudiants actius passen a Capa 1</text>
+    </g>
+  </g>
+
+  <!-- Arrow Capa 0 -> Capa 1 -->
+  <path d="M 720 460 L 756 460" stroke="#a855f7" stroke-width="2.5" marker-end="url(#arrowPurple)" fill="none" />
+
+  <!-- STEP 2: CAPA 1 (KEYPOINTS 3D SAM3DBODY & MOVIMENT) -->
+  <g transform="translate(765, 202)">
+    <rect width="395" height="515" rx="16" fill="url(#cardGrad)" stroke="#a855f7" stroke-width="2" filter="url(#softShadow)" />
+
+    <!-- Top Badge -->
+    <rect x="20" y="20" width="140" height="30" rx="8" fill="#3b0764" stroke="#c084fc" stroke-width="1" />
+    <text x="90" y="40" font-size="11" font-weight="800" fill="#e9d5ff" text-anchor="middle" letter-spacing="1">CAPA 1</text>
+
+    <text x="175" y="41" font-size="17" font-weight="800" fill="#f8fafc">Keypoints 3D &amp; Moviment</text>
+    <text x="24" y="78" font-size="12" fill="#94a3b8">Extracció tridimensional SAM3DBody i conversió a moviment.</text>
+
+    <!-- Sub-module 1.1: Extracció de Keypoints 3D amb SAM3DBody -->
+    <g transform="translate(20, 96)">
+      <rect width="355" height="182" rx="12" fill="#1b122c" stroke="#4c1d95" stroke-width="1.2" />
+
+      <!-- Tag -->
+      <rect x="16" y="14" width="245" height="24" rx="6" fill="#4c1d95" />
+      <text x="26" y="30" font-size="11" font-weight="700" fill="#e9d5ff">1.1 Keypoints 3D (SAM3DBody)</text>
+
+      <text x="16" y="60" font-size="12.5" font-weight="600" fill="#f5f3ff">Reconstrucció anatòmica tridimensional</text>
+      <text x="16" y="78" font-size="11" fill="#94a3b8">Extreu punts en coordenades 3D (x, y, z)</text>
+      <text x="16" y="94" font-size="11" fill="#94a3b8">mitjançant el model especialitzat SAM3DBody.</text>
+
+      <!-- 3D Keypoints visualization diagram -->
+      <g transform="translate(16, 108)">
+        <rect width="323" height="60" rx="8" fill="#0f091d" stroke="#581c87" stroke-width="1" />
+        <!-- 3D Isometric Pose Skeleton -->
+        <g transform="translate(22, 6)">
+          <!-- 3D Axis indicator -->
+          <line x1="8" y1="42" x2="22" y2="42" stroke="#64748b" stroke-width="1" />
+          <line x1="8" y1="42" x2="8" y2="28" stroke="#64748b" stroke-width="1" />
+          <line x1="8" y1="42" x2="3" y2="47" stroke="#64748b" stroke-width="1" />
+          <text x="25" y="44" font-size="7" fill="#64748b">X</text>
+          <text x="6" y="26" font-size="7" fill="#64748b">Z</text>
+          <text x="0" y="51" font-size="7" fill="#64748b">Y</text>
+
+          <!-- Skeleton with depth -->
+          <circle cx="48" cy="10" r="5" fill="#c084fc" />
+          <line x1="48" y1="15" x2="44" y2="30" stroke="#a855f7" stroke-width="2" />
+          <!-- Shoulders in 3D perspective -->
+          <line x1="32" y1="20" x2="56" y2="18" stroke="#a855f7" stroke-width="2" />
+          <circle cx="32" cy="20" r="3" fill="#e9d5ff" />
+          <circle cx="56" cy="18" r="3" fill="#e9d5ff" />
+          <!-- Arms extending towards desk -->
+          <line x1="32" y1="20" x2="28" y2="34" stroke="#a855f7" stroke-width="1.5" />
+          <line x1="56" y1="18" x2="62" y2="32" stroke="#a855f7" stroke-width="1.5" />
+          <circle cx="28" cy="34" r="3" fill="#38bdf8" />
+          <circle cx="62" cy="32" r="3" fill="#38bdf8" />
+        </g>
+        <text x="96" y="26" font-size="11" font-weight="700" fill="#d8b4fe">Coordenades 3D (x, y, z)</text>
+        <text x="96" y="44" font-size="10" fill="#a855f7">Profunditat real + postura amb SAM3DBody</text>
+      </g>
+    </g>
+
+    <!-- Sub-module 1.2: Conversió directa a moviment -->
+    <g transform="translate(20, 296)">
+      <rect width="355" height="200" rx="12" fill="#1b122c" stroke="#4c1d95" stroke-width="1.2" />
+
+      <!-- Tag -->
+      <rect x="16" y="14" width="250" height="24" rx="6" fill="#4c1d95" />
+      <text x="26" y="30" font-size="11" font-weight="700" fill="#e9d5ff">1.2 Conversió Directa a Moviment</text>
+
+      <text x="16" y="60" font-size="12.5" font-weight="600" fill="#f5f3ff">De punts 3D a flux cinètic temporal</text>
+      <text x="16" y="78" font-size="11" fill="#94a3b8">Transforma directament els keypoints en dinàmica:</text>
+
+      <!-- Motion Vector Math Chips -->
+      <g transform="translate(16, 90)">
+        <rect width="154" height="42" rx="8" fill="#2e1065" stroke="#a855f7" stroke-width="1" />
+        <text x="12" y="20" font-size="11" font-weight="700" fill="#e9d5ff">Δx, Δy, Δz (Vectors 3D)</text>
+        <text x="12" y="34" font-size="9" fill="#c084fc">Desplaçament tridimensional</text>
+
+        <g transform="translate(164, 0)">
+          <rect width="159" height="42" rx="8" fill="#2e1065" stroke="#a855f7" stroke-width="1" />
+          <text x="12" y="20" font-size="11" font-weight="700" fill="#e9d5ff">v, a, θ (Cinètica i Girs)</text>
+          <text x="12" y="34" font-size="9" fill="#c084fc">Velocitat i orientació espacial</text>
+        </g>
+      </g>
+
+      <!-- Future Pipeline Target -->
+      <rect x="16" y="144" width="323" height="44" rx="8" fill="#3b0764" stroke="#c084fc" stroke-width="1" />
+      <text x="161" y="163" font-size="11" font-weight="700" fill="#f5f3ff" text-anchor="middle">Llest per a la Detecció d'Anomalies</text>
+      <text x="161" y="178" font-size="9.5" fill="#d8b4fe" text-anchor="middle">Vectors cinètics 3D sense ambigüitat de perspectiva</text>
+    </g>
+  </g>
+
+  <!-- ==================================================== -->
+  <!-- FOOTER NOTE                                          -->
+  <!-- ==================================================== -->
+  <g transform="translate(40, 730)">
+    <text x="0" y="15" font-size="11.5" fill="#64748b">Tal<tspan fill="#a855f7">AI</tspan>ot · Projecte IBEmpren 2026 · Nova Arquitectura Modular</text>
+    <text x="1120" y="15" font-size="11.5" fill="#64748b" text-anchor="end">Fase 1: Capa 0 (Aula) + Capa 1 (SAM3DBody 3D &amp; Moviment)</text>
+  </g>
+</svg>

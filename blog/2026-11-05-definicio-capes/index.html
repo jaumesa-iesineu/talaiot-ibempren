@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Definició de capes - Blog TalAIot IBEmpren</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+  <main class="post">
+    <p class="tornar"><a href="../../index.html">&larr; Blog</a></p>
+    <h1>Definició de capes</h1>
+    <p class="data">05/11/2026</p>
+
+    <p>A <strong>Tal<span style="color: #a855f7; font-weight: 800;">AI</span>ot</strong> estem desenvolupant un sistema
+      de visió per computador per detectar conductes irregulars o trampes en exàmens presencials mitjançant càmeres
+      instal·lades al sostre de l'aula. Aquesta setmana hem fet un canvi de rumb fonamental en l'arquitectura del
+      sistema després dels nostres primers resultats experimentals.</p>
+
+    <h2>El problema: el fracàs del model directe (50% d'encert)</h2>
+    <p>En el nostre primer prototip vam intentar entrenar un model d'intel·ligència artificial directe que detectés les
+      trampes utilitzant únicament <em>keypoints</em> 2D (punts anatòmics de les persones). El resultat va fallar
+      estrepitosament: vam obtenir al voltant d'un <strong>50% d'encert</strong>, el mateix que llançar una moneda a
+      l'aire.</p>
+
+    <div class="avis">
+      <strong>Per què va fallar el model directe?</strong> Intentar anar directament des dels punts clau 2D bruts fins a
+      la classificació de trampa ignora el context de l'espai. El model no distingia si una persona estava asseguda fent
+      l'examen o simplement caminant pel passadís, ni podia mesurar la dinàmica temporal dels moviments reals respecte a
+      la perspectiva zenital de la càmera.
+    </div>
+
+    <h2>La nova estratègia: arquitectura modular per capes</h2>
+    <p>Per solucionar aquest problema, hem dissenyat una <strong>arquitectura per capes</strong> desacoblada que
+      començarem a testejar i validar aquesta mateixa setmana. En lloc d'un bloc monolític, dividim el processament en
+      fases especialitzades i auditables:</p>
+
+    <figure>
+      <img src="capes.svg" alt="Esquema visual de la nova arquitectura per capes de TalAIot">
+      <figcaption>Esquema de la nova arquitectura modular de TalAIot: Capa 0 (Control d'aula) i Capa 1 (Keypoints 3D amb
+        SAM3DBody i conversió directa a moviment).</figcaption>
+    </figure>
+
+    <h2>Capa 0: Control de l'aula i context espacial</h2>
+    <p>La <strong>Capa 0</strong> s'encarrega d'entendre l'entorn de l'aula a través del flux de vídeo de les càmeres
+      zenitals abans de qualsevol anàlisi biomètrica:</p>
+    <ul class="passos">
+      <li><strong>Detecció de transeünts:</strong> Identifica i filtra automàticament les persones que estan en trànsit
+        (professors vigilant l'examen, alumnes entrant o sortint, gent caminant pels passadissos). Això elimina el
+        soroll visual i prevé falsos positius.</li>
+      <li><strong>Mapeig de pupitres i detecció d'estat:</strong> Segmenta cadascun dels llocs de l'aula i distingeix en
+        temps real quan un estudiant està <strong>fent l'examen activament</strong> o quan el pupitre està buit /
+        l'alumne no està participant en l'avaluació.</li>
+    </ul>
+    <p>D'aquesta manera, només els estudiants que estan realment fent l'examen al seu pupitre es transmeten com a
+      subjectes d'anàlisi a la següent etapa.</p>
+
+    <h2>Capa 1: Keypoints 3D (SAM3DBody) i conversió a moviment</h2>
+    <p>Un cop aïllat l'estudiant actiu, la <strong>Capa 1</strong> supera la ceguesa de perspectiva de l'antic intent
+      dividint el processament en dos passos clau:</p>
+    <ul class="passos">
+      <li><strong>Capa 1.1: Extracció de keypoints 3D amb SAM3DBody:</strong> A diferència del model anterior (que
+        utilitzava punts plans en 2D fàcilment distorsionables per la inclinació de la càmera), s'utilitza
+        <strong>SAM3DBody</strong> per extreure les posicions anatòmiques en un espai tridimensional
+        <code>(x, y, z)</code>. Això permet conèixer la profunditat real, la postura corporal completa i l'orientació
+        exacta del cap i de les extremitats de l'alumne.</li>
+      <li><strong>Capa 1.2: Conversió directa a moviment:</strong> Aquesta subcapa agafa directament els punts clau 3D i
+        els transforma en vectors de moviment al llarg del temps (desplaçament <code>(Δx, Δy, Δz)</code>, velocitat,
+        acceleració i variacions angulars de gir).</li>
+    </ul>
+
+    <p>El resultat és una descripció cinètica pura del comportament de l'estudiant, lliure de les limitacions de
+      perspectiva i de coordenades estàtiques, deixant la informació preparada per als models posteriors de detecció de
+      patrons de còpia.</p>
+
+    <h2>Objectius d'aquesta setmana</h2>
+    <p>Durant els propers dies implementarem i provarem aquestes dues primeres capes amb les gravacions de prova
+      disponibles per calibrar la precisió de la segmentació de pupitres i verificar que els vectors de moviment
+      reflecteixen fidelment els patrons de comportament a l'aula.</p>
+  </main>
+</body>
+
+</html>

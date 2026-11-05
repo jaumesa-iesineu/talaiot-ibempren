@@ -50,12 +50,12 @@ def generar():
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Talaiot - IBEmpren</title>
+<title>TalAIot - IBEmpren</title>
 <link rel="stylesheet" href="blog/style.css">
 </head>
 <body>
 <main class="blog">
-<h1>Talaiot</h1>
+<h1>Tal<span style="color: #a855f7; font-weight: 800;">AI</span>ot</h1>
 <ul class="llista-posts">
 {llista}
 </ul>
