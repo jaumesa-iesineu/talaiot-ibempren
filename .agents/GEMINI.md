@@ -77,7 +77,7 @@ Quan es creï o s'editi una entrada del blog, s'ha de respectar estrictament aqu
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>[Títol del post] - Blog Talaiot IBEmpren</title>
+  <title>[Títol del post] - Blog TalAIot IBEmpren</title>
   <link rel="stylesheet" href="../style.css">
 </head>
 
@@ -137,6 +137,9 @@ Quan es creï o s'editi una entrada del blog, s'ha de respectar estrictament aqu
 
 ## 5. Flux de Treball i Comandes
 
+### 5.0 Formatatge previ amb VS Code
+- **Important:** Totes les comandes o instruccions que s'enviïn als agents s'han de fer **DESPRÉS de donar format al document** amb l'acció de VS Code **`Alt+Shift+F`** (Format Document). Això garanteix que l'arxiu estigui net, ben indentat i sense inconsistències abans de la intervenció de l'agent.
+
 ### 5.1 Comprovació i generació local de l'índex
 L'arxiu `index.html` de l'arrel és generat pel script Python:
 
@@ -149,10 +152,11 @@ python tools/build_blog.py
 
 ### 5.2 Flux de Git
 1. Fer sempre `git pull` abans d'iniciar nous canvis.
-2. Crear o modificar els arxius corresponents.
-3. Executar `python tools/build_blog.py` per verificar que la llista es regenera sense errors.
-4. Fer commit amb un missatge clar en català o anglès senzill.
-5. Fer `git push` a `main`. GitHub Actions executarà el workflow `.github/workflows/blog.yml` per validar i actualitzar el repositori remot.
+2. Formatar el document amb `Alt+Shift+F` abans de transmetre comandes a l'agent.
+3. Crear o modificar els arxius corresponents.
+4. Executar `python tools/build_blog.py` per verificar que la llista es regenera sense errors.
+5. Fer commit amb un missatge clar en català o anglès senzill que descrigui la informació del canvi.
+6. Fer `git push` a `main`. GitHub Actions executarà el workflow `.github/workflows/blog.yml` per validar i actualitzar el repositori remot.
 
 ---
 
@@ -164,4 +168,6 @@ Quan se't demani crear una nova entrada o modificar codi:
 3. **Diagrames i gràfics:** Si el post requereix il·lustracions o diagrames d'arquitectura, utilitza preferentment gràfics vectorials SVG integrats a la mateixa carpeta del post, amb tipografies de sistema i colors que s'adaptin bé a fons clar/fosc.
 4. **Executa el script generador:** Executa `python tools/build_blog.py` després de crear o eliminar qualsevol post per mantenir l'arrel actualitzada.
 5. **No afegeixis dependències externes pesades:** Mantingues la web lleugera, estàtica, ràpida i accessible.
+6. **Format del document:** Assegura't que el format i la indentació del document estiguin nets i segueixin l'estàndard d'`Alt+Shift+F`.
+7. **Commit i Push obligatoris a cada acció:** Cada acció realitzada per l'agent ha d'executar necessàriament un `git add`, un `git commit` amb la informació detallada del canvi i un `git push` cap a la branca principal `main`.
 
