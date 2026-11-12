@@ -236,3 +236,24 @@ code {
   text-align: center;
   line-height: 1.8rem;
 }
+
+.nav-accions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.boto-pla {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--fons);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 8px;
+}
+
+.boto-pla:hover {
+  opacity: 0.85;
+}

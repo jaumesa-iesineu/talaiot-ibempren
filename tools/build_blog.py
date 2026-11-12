@@ -64,6 +64,8 @@ def generar():
 <main class="blog">
 <div class="nav-top">
 <h1>Tal<span style="color: #a855f7; font-weight: 800;">AI</span>ot</h1>
+<div class="nav-accions">
+<a class="boto-pla" href="pla-de-negoci/index.html">Pla de negoci</a>
 <button id="theme-toggle" class="theme-toggle" aria-label="Canvia el tema" title="Canvia el tema (clar/fosc)">
   <svg class="icon-dark" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
@@ -80,6 +82,7 @@ def generar():
     <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
   </svg>
 </button>
+</div>
 </div>
 <ul class="llista-posts">
 {llista}

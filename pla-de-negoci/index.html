@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TalAIot · Pla de negoci 2027–2030</title>
+<style>
+:root { --ink:#1d2329; --soft:#5b6670; --line:#e3e1db; --bg:#faf8f4; --stone:#b5651d; --stone2:#f3e6d8; --ok:#2f7d4f; --ko:#b23b3b; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.6 Georgia, 'Times New Roman', serif; }
+.wrap { max-width:960px; margin:0 auto; padding:0 28px 80px; }
+h1,h2,h3,.sans { font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; }
+header.cover { background:linear-gradient(135deg,#2a2420,#5a3a20); color:#fff; padding:90px 28px 70px; }
+header.cover .wrap { padding-bottom:0; }
+.kicker { letter-spacing:.18em; text-transform:uppercase; font-size:13px; color:#e9c9a5; font-family:sans-serif; }
+header h1 { font-size:64px; margin:10px 0 6px; letter-spacing:-.02em; }
+header .tag { font-size:22px; font-style:italic; color:#f1dcc4; }
+header .meta { margin-top:36px; font-size:14px; color:#d9c3ab; font-family:sans-serif; }
+nav.toc { background:#fff; border:1px solid var(--line); border-radius:10px; padding:18px 24px; margin:36px 0; font-family:sans-serif; font-size:14px; columns:2; }
+nav.toc a { color:var(--ink); text-decoration:none; display:block; padding:2px 0; }
+nav.toc a:hover { color:var(--stone); }
+h2 { font-size:28px; margin:64px 0 14px; padding-top:10px; border-top:3px solid var(--stone); }
+h2 .num { color:var(--stone); margin-right:10px; }
+h3 { font-size:18px; margin:28px 0 8px; }
+p { margin:0 0 14px; }
+.lead { font-size:19px; }
+.box { background:#fff; border:1px solid var(--line); border-radius:10px; padding:18px 22px; margin:18px 0; }
+.note { background:var(--stone2); border-left:4px solid var(--stone); padding:12px 18px; border-radius:6px; font-size:15px; margin:16px 0; }
+.kpis { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin:22px 0; font-family:sans-serif; }
+.kpi { background:#fff; border:1px solid var(--line); border-radius:10px; padding:14px; }
+.kpi b { display:block; font-size:24px; color:var(--stone); }
+.kpi span { font-size:13px; color:var(--soft); }
+table { width:100%; border-collapse:collapse; margin:14px 0 20px; font-family:sans-serif; font-size:14px; background:#fff; }
+th, td { border-bottom:1px solid var(--line); padding:8px 10px; text-align:left; vertical-align:top; }
+th { background:#f1ede6; font-weight:600; }
+td.n, th.n { text-align:right; white-space:nowrap; }
+tr.tot td { font-weight:700; background:#f7f3ec; }
+.pos { color:var(--ok); } .neg { color:var(--ko); }
+.canvas { display:grid; grid-template-columns:repeat(10,1fr); grid-auto-rows:minmax(0,auto); gap:8px; font-family:sans-serif; font-size:13.5px; line-height:1.45; }
+.cell { background:#fff; border:1px solid var(--line); border-radius:8px; padding:12px; }
+.cell h4 { margin:0 0 6px; font-size:12px; text-transform:uppercase; letter-spacing:.08em; color:var(--stone); }
+.cell ul { margin:0; padding-left:16px; }
+.kp { grid-column:1/3; grid-row:1/3; } .ka { grid-column:3/5; grid-row:1; } .kr { grid-column:3/5; grid-row:2; }
+.vp { grid-column:5/7; grid-row:1/3; background:#fff7ee; border-color:var(--stone); }
+.cr { grid-column:7/9; grid-row:1; } .ch { grid-column:7/9; grid-row:2; } .cs { grid-column:9/11; grid-row:1/3; }
+.co { grid-column:1/6; grid-row:3; } .rs { grid-column:6/11; grid-row:3; }
+.swot { display:grid; grid-template-columns:1fr 1fr; gap:10px; font-family:sans-serif; font-size:14px; }
+.swot div { border-radius:8px; padding:14px 16px; }
+.swot h4 { margin:0 0 6px; }
+.s { background:#e8f3ec; } .w { background:#fbeaea; } .o { background:#e9f0fa; } .t { background:#fdf3e1; }
+.swot ul { margin:0; padding-left:18px; }
+.layers { display:flex; gap:8px; flex-wrap:wrap; font-family:sans-serif; font-size:13px; }
+.layer { flex:1 1 160px; background:#fff; border:1px solid var(--line); border-top:4px solid var(--stone); border-radius:8px; padding:10px 12px; }
+.layer b { display:block; margin-bottom:4px; }
+.chart { background:#fff; border:1px solid var(--line); border-radius:10px; padding:18px 20px; font-family:sans-serif; font-size:13px; }
+.crow { display:grid; grid-template-columns:70px 1fr 100px; gap:12px; align-items:center; margin:10px 0; }
+.cbars .bar { height:22px; border-radius:4px; margin:3px 0; position:relative; min-width:2px; }
+.bar span { position:absolute; left:8px; top:2px; color:#fff; font-size:12px; white-space:nowrap; }
+.bi { background:var(--stone); } .bc { background:#7a8691; }
+.cres { text-align:right; font-weight:700; }
+.legend span { display:inline-block; width:12px; height:12px; border-radius:2px; margin:0 6px 0 14px; vertical-align:middle; }
+.tiers { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; font-family:sans-serif; }
+.tier { background:#fff; border:1px solid var(--line); border-radius:10px; padding:16px; font-size:14px; }
+.tier.rec { border:2px solid var(--stone); }
+.tier h4 { margin:0; font-size:18px; }
+.tier .pr { font-size:22px; color:var(--stone); font-weight:700; margin:6px 0 2px; }
+.tier ul { padding-left:18px; margin:10px 0 0; }
+.badge { display:inline-block; background:var(--stone); color:#fff; font-size:11px; padding:2px 8px; border-radius:20px; vertical-align:middle; margin-left:6px; }
+footer { margin-top:70px; font-size:13px; color:var(--soft); font-family:sans-serif; border-top:1px solid var(--line); padding-top:16px; }
+@media (max-width:760px) { .kpis,.tiers{grid-template-columns:1fr 1fr;} .canvas{display:block;} .canvas .cell{margin-bottom:8px;} nav.toc{columns:1;} header h1{font-size:44px;} .swot{grid-template-columns:1fr;} }
+@media print { body{background:#fff;} h2{break-before:page;} .box,.cell,table,.tier{break-inside:avoid;} header.cover{-webkit-print-color-adjust:exact; print-color-adjust:exact;} }
+</style>
+</head>
+<body>
+
+<header class="cover"><div class="wrap">
+  <div class="kicker">Pla de negoci · 2027–2030</div>
+  <h1>TalAIot</h1>
+  <div class="tag">Cada alumne, a la vista. En temps real.</div>
+  <div class="meta">Supervisió d'exàmens presencials assistida per intel·ligència artificial<br>
+  Projecte de MainLab · Mallorca · Projecte Intermodular IBEmpren, CFGS DAM, IES Sineu · Novembre de 2026</div>
+</div></header>
+
+<div class="wrap">
+
+<nav class="toc">
+<a href="#resum">0. Resum executiu</a>
+<a href="#qui">1. Qui som</a>
+<a href="#problema">2. El problema</a>
+<a href="#solucio">3. La solució</a>
+<a href="#canvas">4. Model de negoci (Canvas)</a>
+<a href="#mercat">5. Mercat i clients</a>
+<a href="#competencia">6. Competència i avantatge</a>
+<a href="#comercial">7. Màrqueting i vendes</a>
+<a href="#operacions">8. Operacions i tecnologia</a>
+<a href="#legal">9. Marc legal i ètic</a>
+<a href="#economic">10. Pla econòmic</a>
+<a href="#dafo">11. DAFO</a>
+<a href="#riscos">12. Riscos i mesures</a>
+<a href="#calendari">13. Calendari i fites</a>
+</nav>
+
+<h2 id="resum"><span class="num">0</span>Resum executiu</h2>
+<p class="lead">TalAIot ajuda el professorat a vigilar exàmens presencials. Unes càmeres zenitals, instal·lades al sostre de l'aula, envien la imatge a un servidor local. La intel·ligència artificial analitza com es mouen els alumnes i, quan detecta un moment que val la pena mirar, la tauleta del docent s'il·lumina en silenci. La IA no acusa ningú: només indica on mirar. Decideix sempre el docent.</p>
+<p>El sistema no fa reconeixement facial, tapa les cares durant el processament i, en producció, no grava vídeo ni guarda imatges. La imatge només existeix mentre es mostra al docent. Així responem a un problema creixent, les trampes amb mòbils, auriculars i IA, sense convertir l'aula en un espai de vigilància.</p>
+<p>El juny de 2026 vàrem fer una prova pilot en aules reals d'<b>edibFleming</b> (Palma), on el sistema va ajudar a detectar més d'un cas de trampa en un examen oficial de recuperació, verificat després pel centre.</p>
+<div class="kpis">
+  <div class="kpi"><b>180</b><span>aules actives en acabar l'any 3</span></div>
+  <div class="kpi"><b>50</b><span>centres clients en acabar l'any 3</span></div>
+  <div class="kpi"><b>334.600 €</b><span>ingressos de l'any 3</span></div>
+  <div class="kpi"><b class="pos">Any 2</b><span>primer any amb benefici; les pèrdues de l'any 1 es recuperen dins el mateix any 2</span></div>
+</div>
+<p>Venem una <b>instal·lació inicial</b> i una <b>subscripció anual per aula</b>, en tres nivells (Petite, Plus i Ultimate). Cada aula Plus deixa devers 600 € de marge en instal·lar-la i 630 € cada any de subscripció. El primer any tancam amb un resultat de <b class="neg">−7.840 €</b>, l'any 2 amb <b class="pos">20.700 €</b> i l'any 3 amb <b class="pos">74.000 €</b> abans d'impostos. Necessitam <b>25.000 €</b> d'inversió inicial.</p>
+
+<h2 id="qui"><span class="num">1</span>Qui som</h2>
+<p><b>Jaume Sampol</b> (19 anys) és el fundador de TalAIot i de MainLab, un estudi de programari de Mallorca que fa aplicacions de gestió, webs, apps natives d'Apple i projectes d'IA i visió per computador. Estudia el CFGS de Desenvolupament d'Aplicacions Multiplataforma a l'IES Sineu.</p>
+<p>La idea va néixer d'una conversa amb un amic universitari que li va contar que els seus companys copiaven als exàmens amb l'ajuda de la IA. En Jaume es va demanar si la mateixa tecnologia podia servir per detectar-ho. Va passar mesos provant enfocaments i càmeres fins a trobar-ne un que funcionàs.</p>
+<p>Des d'octubre de 2026, TalAIot és el projecte de l'equip del <b>Projecte Intermodular d'IBEmpren</b>, que documenta la feina al blog ibempren.talaiot.eu.</p>
+<div class="note"><b>Equip promotor:</b> [afegiu-hi els noms i el rol de cada membre: tecnologia, negoci, màrqueting…]</div>
+<h3>Forma jurídica</h3>
+<p>Proposam constituir una <b>societat limitada (SL)</b> quan es tanqui el primer contracte de pagament. Una SL limita la responsabilitat dels socis, dona confiança als centres i universitats i permet optar a préstecs i ajudes per a empreses emergents. Fins llavors, l'activitat pot continuar dins MainLab.</p>
+
+<h2 id="problema"><span class="num">2</span>El problema</h2>
+<p>Copiar ja no és passar un paperet. Els mòbils amagats, els auriculars sense fil, els rellotges intel·ligents i les eines d'IA permeten resoldre un examen en segons. Un sol docent no pot vigilar trenta pupitres alhora mentre camina per l'aula.</p>
+<ul>
+<li><b>Per al centre:</b> si un títol s'aprova copiant, perd valor, i el centre perd prestigi davant empreses i famílies.</li>
+<li><b>Per al docent:</b> vigilar és esgotador i incòmode, i una acusació sense proves fermes genera conflictes.</li>
+<li><b>Per a l'alumne honest:</b> qui copia li treu la nota i el lloc. La trampa és una injustícia per als qui estudien.</li>
+</ul>
+<p>Les solucions que hi ha al mercat se centren en exàmens <i>en línia</i>, gravant la càmera de l'ordinador de cada alumne. Per a l'examen presencial clàssic, que és el que fan majoritàriament la FP i la universitat, gairebé no hi ha res.</p>
+
+<h2 id="solucio"><span class="num">3</span>La solució</h2>
+<h3>Com funciona a l'aula</h3>
+<ol>
+<li><b>Càmeres zenitals</b> al sostre, connectades per PoE (un sol cable porta dades i corrent). La vista des de dalt redueix els angles morts.</li>
+<li><b>Servidor d'inferència local</b> al centre (Edge AI). Les imatges no surten de la xarxa del centre.</li>
+<li><b>Tauleta de control</b> a la taula del docent, amb una carcassa personalitzada que s'il·lumina pel costat quan hi ha un moment que convé mirar. Sense sons i sense interrompre l'examen.</li>
+<li><b>Decisió humana:</b> el docent mira, valora i decideix. TalAIot mai no sanciona ni etiqueta ningú.</li>
+</ol>
+<h3>Arquitectura per capes</h3>
+<p>Un primer model, que passava directament de punts del cos en 2D a "copia / no copia", va encertar només un 50 % (com tirar una moneda). Per això hem redissenyat el sistema en capes separades i auditables:</p>
+<div class="layers">
+<div class="layer"><b>Capa 0 · Context de l'aula</b>Filtra els qui passen (docents, alumnes que entren o surten) i mapeja cada pupitre per saber si l'alumne fa l'examen.</div>
+<div class="layer"><b>Capa 1.1 · Postura 3D</b>Extreu punts anatòmics en 3D (SAM3DBody): profunditat real, orientació del cap i dels braços.</div>
+<div class="layer"><b>Capa 1.2 · Moviment</b>Converteix la postura en vectors de desplaçament, velocitat, acceleració i gir.</div>
+<div class="layer"><b>Capa 2 · Patrons</b>Models que reconeixen patrons de còpia a partir del moviment (en desenvolupament).</div>
+<div class="layer"><b>Capa 3 · Alerta</b>Prioritza els pupitres i encén la tauleta del docent.</div>
+</div>
+<h3>Proposta de valor</h3>
+<div class="box"><b>Per al centre:</b> exàmens més justos i títols que mantenen el valor, sense contractar més vigilants.<br>
+<b>Per al docent:</b> vigila tota l'aula des de la taula i sap on ha de mirar, sense haver d'acusar a cegues.<br>
+<b>Per a l'alumne:</b> qui estudia competeix en igualtat, i ningú no és gravat ni identificat per la cara.</div>
+
+<h2 id="canvas"><span class="num">4</span>Model de negoci (Business Model Canvas)</h2>
+<div class="canvas">
+<div class="cell kp"><h4>Socis clau</h4><ul>
+<li>Proveïdor de càmeres IP PoE i commutadors</li>
+<li>Proveïdor de tauletes i fabricant de carcasses amb llum (impressió 3D / injecció)</li>
+<li>Instal·ladors elèctrics locals per a obres grosses</li>
+<li>Centres pilot: edibFleming</li>
+<li>IES Sineu i IBEmpren (suport i visibilitat)</li>
+<li>Assessoria jurídica en RGPD i AI Act</li>
+<li>Proveïdor de GPU al núvol per entrenar</li></ul></div>
+<div class="cell ka"><h4>Activitats clau</h4><ul>
+<li>R+D: entrenar i validar el model per capes</li>
+<li>Venda consultiva i demostracions</li>
+<li>Estudi de l'aula i instal·lació</li>
+<li>Formació del professorat</li>
+<li>Suport i manteniment remot</li>
+<li>Conformitat legal (RGPD, AI Act)</li></ul></div>
+<div class="cell kr"><h4>Recursos clau</h4><ul>
+<li>Programari i model d'IA propis</li>
+<li>Dataset ètic de casos reals</li>
+<li>Kits de demostració portàtils</li>
+<li>Equip tècnic (desenvolupament i instal·lació)</li>
+<li>Cas d'èxit del pilot</li></ul></div>
+<div class="cell vp"><h4>Proposta de valor</h4>
+<p><b>Supervisió d'exàmens presencials assistida per IA que respecta la privacitat.</b></p><ul>
+<li>El docent veu tota l'aula i la IA li diu on mirar</li>
+<li>Alertes lluminoses silencioses</li>
+<li>Sense reconeixement facial, cares tapades, sense gravacions en producció</li>
+<li>Processament local: les imatges no surten del centre</li>
+<li>Decideix sempre una persona</li>
+<li>Fet a Mallorca, amb suport proper i en català</li></ul></div>
+<div class="cell cr"><h4>Relació amb clients</h4><ul>
+<li>Demostració a l'aula del client</li>
+<li>Acollida: formació del professorat (1 h)</li>
+<li>Suport per correu, telèfon i preguntes freqüents</li>
+<li>Suport reforçat en període d'exàmens</li>
+<li>Revisió anual del servei</li></ul></div>
+<div class="cell ch"><h4>Canals</h4><ul>
+<li>Visita directa i demo a direccions</li>
+<li>LinkedIn a directors i caps d'estudis</li>
+<li>Web talaiot.eu amb sol·licitud de demo</li>
+<li>Instagram i Facebook (marca i notorietat)</li>
+<li>Fires d'educació i mitjans locals</li>
+<li>Boca-orella entre centres</li></ul></div>
+<div class="cell cs"><h4>Segments de clients</h4><ul>
+<li><b>Centres de FP de grau superior</b> (privats i concertats primer; públics després)</li>
+<li><b>Universitats</b> i centres adscrits</li>
+<li><b>Certificacions oficials i professionals</b> (idiomes, acreditacions, oposicions)</li></ul></div>
+<div class="cell co"><h4>Estructura de costos</h4><ul>
+<li>Material: càmeres, commutadors, servidors, tauletes, carcasses</li>
+<li>Personal: desenvolupament, instal·lació i suport</li>
+<li>Entrenament del model: GPU, etiquetatge, recompenses del pilot</li>
+<li>Manteniment i garantia dels equips</li>
+<li>Assessorament legal, assegurances, gestoria</li>
+<li>Màrqueting i desplaçaments</li></ul></div>
+<div class="cell rs"><h4>Fonts d'ingressos</h4><ul>
+<li>Alta de centre (1.900 €, inclou servidor local)</li>
+<li>Instal·lació per aula (de 900 € a 2.200 € segons el nivell)</li>
+<li>Subscripció anual per aula (de 390 € a 1.190 €): programari, actualitzacions, suport i garantia</li>
+<li>Lloguer de kit portàtil per a convocatòries (350 €/jornada)</li></ul></div>
+</div>
+
+<h2 id="mercat"><span class="num">5</span>Mercat i clients</h2>
+<h3>Clients objectiu, per ordre d'entrada</h3>
+<table>
+<tr><th>Segment</th><th>Per què</th><th>Qui decideix</th><th>Quan</th></tr>
+<tr><td><b>FP privada i concertada a les Balears</b></td><td>Decideixen ràpid, competeixen per prestigi i ja tenim un cas d'èxit (edibFleming)</td><td>Direcció o titularitat</td><td>Any 1</td></tr>
+<tr><td><b>Certificacions</b> (centres d'exàmens d'idiomes, acreditacions professionals, acadèmies d'oposicions)</td><td>Fan exàmens massius i el frau els surt molt car. Ideal per al kit portàtil</td><td>Responsable del centre examinador</td><td>Any 1–2</td></tr>
+<tr><td><b>Universitats i centres adscrits</b> (UIB i universitats privades)</td><td>Volum alt i molta preocupació per la IA; cicle de venda llarg</td><td>Vicerectorat, gerència, contractació pública</td><td>Any 2–3</td></tr>
+<tr><td><b>FP pública</b></td><td>Molts centres, però compra centralitzada</td><td>Conselleria d'Educació</td><td>Any 2–3, amb pilot institucional</td></tr>
+<tr><td><b>Resta d'Espanya</b> (Comunitat Valenciana, Catalunya i Madrid)</td><td>Mateix producte; el català obre la porta a Catalunya i València</td><td>Igual que a les Balears</td><td>Any 3</td></tr>
+</table>
+<div class="note">La quota de mercat que necessitam és petita. L'any 3 bastaria tenir 50 centres clients, amb 180 aules d'examen equipades (devers 3–4 aules per centre). Comptam amb el fet que molts centres no equipen totes les aules, sinó només les que fan servir per als exàmens.</div>
+<h3>Perfil del client ideal</h3>
+<p>Un centre privat o concertat de FP de grau superior, amb entre 300 i 1.500 alumnes, que fa exàmens presencials amb pes a la nota final i que ja ha tengut algun cas de còpia amb mòbil o IA. La persona que decideix és el director o el cap d'estudis. Li preocupen la reputació del centre i els conflictes amb famílies i alumnes.</p>
+
+<h2 id="competencia"><span class="num">6</span>Competència i avantatge</h2>
+<table>
+<tr><th>Alternativa</th><th>Què fa</th><th>Limitació</th></tr>
+<tr><td>Vigilància humana</td><td>Un o més docents caminen per l'aula</td><td>Cara, cansada i amb angles morts; no arriba a tot</td></tr>
+<tr><td>Plataformes de <i>proctoring</i> en línia (Smowl, Proctorio, ProctorU…)</td><td>Gravació per webcam en exàmens en línia</td><td>Pensades per a l'examen a l'ordinador, no per a l'aula presencial; graven i emmagatzemen</td></tr>
+<tr><td>Detectors de dispositius i inhibidors</td><td>Detecten o bloquegen senyals de ràdio</td><td>Els inhibidors no es poden fer servir legalment a l'aula; els detectors no veuen copiar del company ni xuletes</td></tr>
+<tr><td>Videovigilància convencional</td><td>Grava l'aula</td><td>Ningú no mira el vídeo en directe; problemes de protecció de dades</td></tr>
+</table>
+<h3>El nostre avantatge</h3>
+<ul>
+<li><b>Presencial i en directe:</b> pensat per a l'aula, no per a l'ordinador de casa.</li>
+<li><b>Privacitat des del disseny:</b> sense cares, sense gravacions en producció i amb processament local. Això facilita l'acord amb el delegat de protecció de dades del centre.</li>
+<li><b>La persona decideix:</b> encaixa amb l'exigència de supervisió humana de la normativa europea d'IA.</li>
+<li><b>Proximitat:</b> instal·lació i suport a Mallorca, en català i castellà.</li>
+<li><b>Dataset propi</b> de casos reals de la vista zenital, difícil de copiar.</li>
+</ul>
+
+<h2 id="comercial"><span class="num">7</span>Màrqueting i vendes</h2>
+<h3>Preus</h3>
+<div class="tiers">
+<div class="tier"><h4>Petite</h4><div class="pr">390 €/any</div><div>+ 900 € d'instal·lació per aula</div><ul><li>Mínim de càmeres</li><li>Pot tenir oclusions a les darreres files</li><li>Per començar i per a grups petits</li><li>Suport per correu</li></ul></div>
+<div class="tier rec"><h4>Plus <span class="badge">recomanat</span></h4><div class="pr">690 €/any</div><div>+ 1.400 € d'instal·lació per aula</div><ul><li>Estudi previ de l'aula</li><li>100 % dels pupitres coberts</li><li>Formació del professorat</li><li>Suport per correu i telèfon</li></ul></div>
+<div class="tier"><h4>Ultimate</h4><div class="pr">1.190 €/any</div><div>+ 2.200 € d'instal·lació per aula</div><ul><li>Càmeres d'alta resolució</li><li>Cobertura integral</li><li>Assistència 24/7</li><li>Temps de resposta garantit</li></ul></div>
+</div>
+<p style="margin-top:14px">A més: <b>alta de centre</b> de 1.900 €, una sola vegada, que inclou el servidor local; i <b>kit portàtil</b> per a convocatòries a 350 € per jornada. Descompte del 15 % a partir de 5 aules. Pagament: 50 % en signar i 50 % en acabar la instal·lació. La subscripció es factura per curs escolar.</p>
+<p>Per a un centre que equipa 3 aules Plus, el primer any costa 8.170 € i els anys següents 2.070 €. És molt menys que el sou d'un vigilant addicional en període d'exàmens.</p>
+<h3>Com captarem clients</h3>
+<ol>
+<li><b>Cas d'èxit edibFleming:</b> vídeo testimonial i dades del pilot. És el nostre millor argument.</li>
+<li><b>Llista de centres objectiu</b> de les Balears i missatge personalitzat per LinkedIn al director o cap d'estudis, seguit d'una telefonada.</li>
+<li><b>Demo a l'aula del client</b> amb el kit portàtil: és el moment en què es tanca la venda.</li>
+<li><b>Prova de 2 setmanes</b> en una aula en període d'exàmens, sense cost d'instal·lació si després contracten.</li>
+<li><b>Web talaiot.eu</b> amb preus orientatius, FAQ de privacitat i sol·licitud de demo.</li>
+<li><b>Instagram i Facebook</b> per a la notorietat de marca. <b>Premsa i ràdio local</b> (Onda Cero Mallorca ja ens va entrevistar el 9 de juny de 2026).</li>
+<li><b>Premi per recomanació:</b> un any de subscripció d'una aula gratis per cada centre que ens recomanin i contracti.</li>
+</ol>
+<h3>Embut de vendes (any 1)</h3>
+<table>
+<tr><th>Etapa</th><th class="n">Centres</th><th>Conversió</th></tr>
+<tr><td>Centres contactats</td><td class="n">80</td><td>—</td></tr>
+<tr><td>Reunions</td><td class="n">30</td><td>38 %</td></tr>
+<tr><td>Demos a l'aula</td><td class="n">16</td><td>53 %</td></tr>
+<tr><td>Clients</td><td class="n">8</td><td>50 %</td></tr>
+</table>
+
+<h2 id="operacions"><span class="num">8</span>Operacions i tecnologia</h2>
+<h3>Procés de servei</h3>
+<table>
+<tr><th>Pas</th><th>Què feim</th><th>Durada</th></tr>
+<tr><td>1. Estudi de l'aula</td><td>Plànol, alçada del sostre, xarxa i punts de corrent</td><td>1 visita</td></tr>
+<tr><td>2. Proposta i contracte</td><td>Nivell, nombre d'aules i acord de protecció de dades (encarregat del tractament)</td><td>1 setmana</td></tr>
+<tr><td>3. Instal·lació</td><td>Càmeres, PoE, servidor i tauleta. Calibratge de pupitres</td><td>½ dia per aula</td></tr>
+<tr><td>4. Formació</td><td>Sessió d'1 hora amb el professorat i guia ràpida</td><td>1 h</td></tr>
+<tr><td>5. Suport</td><td>Monitoratge remot de l'estat dels servidors, tiquets, actualitzacions</td><td>Continu</td></tr>
+</table>
+<h3>Activitats diàries</h3>
+<ul>
+<li>Comprovar l'estat dels servidors i de les càmeres de cada centre (panell de monitoratge).</li>
+<li>Respondre els tiquets de suport, amb un objectiu de resposta inferior a 24 h (4 h en període d'exàmens).</li>
+<li>Millorar el model amb noves dades i publicar actualitzacions.</li>
+<li>Fer prospecció comercial i demos.</li>
+</ul>
+<h3>Material per aula (pla Plus)</h3>
+<table>
+<tr><th>Element</th><th class="n">Cost estimat</th></tr>
+<tr><td>4 càmeres IP PoE zenitals</td><td class="n">320 €</td></tr>
+<tr><td>Commutador PoE de 8 ports</td><td class="n">120 €</td></tr>
+<tr><td>Tauleta del docent</td><td class="n">220 €</td></tr>
+<tr><td>Carcassa personalitzada amb llum LED</td><td class="n">60 €</td></tr>
+<tr><td>Cablejat, suports i petit material</td><td class="n">80 €</td></tr>
+<tr class="tot"><td>Total per aula</td><td class="n">800 €</td></tr>
+<tr><td>Servidor d'inferència amb GPU (un per centre)</td><td class="n">1.600 €</td></tr>
+</table>
+<h3>Full de ruta tecnològic</h3>
+<ul>
+<li><b>Novembre–desembre 2026:</b> validar les capes 0 i 1 amb les gravacions de prova i calibrar la segmentació de pupitres.</li>
+<li><b>Gener–març 2027:</b> capa 2 (patrons de còpia) i proves en exàmens simulats. Objectiu: detectar com a mínim el 85 % dels casos, amb menys d'una falsa alerta per examen.</li>
+<li><b>Abril–juny 2027:</b> segon pilot a edibFleming i a un altre centre en la convocatòria de juny.</li>
+<li><b>Juliol–setembre 2027:</b> versió comercial 1.0 i primeres instal·lacions per al curs 2027-28.</li>
+</ul>
+
+<h2 id="legal"><span class="num">9</span>Marc legal i ètic</h2>
+<p>Treballar amb imatges d'alumnes demana fer les coses bé des del primer dia. Ho convertim en un avantatge competitiu.</p>
+<h3>Reglament europeu d'IA (AI Act)</h3>
+<p>Els sistemes d'IA que vigilen i detecten conductes prohibides dels alumnes durant les proves són considerats <b>d'alt risc</b>. Això implica: gestió de riscs, qualitat de les dades d'entrenament, documentació tècnica, registres de funcionament, <b>supervisió humana</b>, precisió i robustesa, marcatge CE i registre a la base de dades de la UE abans de vendre'l. El calendari d'aplicació d'aquestes obligacions s'està ajustant a nivell europeu, però dissenyam TalAIot per complir-les des d'ara.</p>
+<p>A més, a l'educació està <b>prohibit el reconeixement d'emocions</b>. TalAIot analitza moviments, no emocions ni identitats, i ha de continuar així.</p>
+<h3>Protecció de dades (RGPD i LOPDGDD)</h3>
+<ul>
+<li>El centre és el responsable del tractament i TalAIot n'és l'encarregat, amb contracte signat.</li>
+<li>Avaluació d'impacte (AIPD) preparada per TalAIot i lliurada al centre.</li>
+<li>Informació clara a l'alumnat abans de l'examen (cartell a l'aula i clàusula a la matrícula).</li>
+<li>Minimització: sense reconeixement facial, cares tapades, sense emmagatzematge d'imatges en producció i processament dins el centre.</li>
+<li>Els registres tècnics que exigeix l'AI Act guarden esdeveniments, no imatges.</li>
+</ul>
+<h3>Gravacions per entrenar el model</h3>
+<p>Per millorar el model necessitam gravacions reals, però només durant els pilots i amb garanties: consentiment exprés i per escrit, vídeos xifrats en origen i emmagatzemats en local, accés restringit, termini de conservació definit i eliminació en acabar.</p>
+<p>El programa de recompenses (<i>bug bounty</i> educatiu) paga com a mínim 100 € a l'alumne que aconsegueixi copiar sense ser detectat i que cedeixi les dades. <b>Recomanam fer-lo només en exàmens simulats</b>, que no comptin per a la nota, i amb l'acord del centre. Així evitam qualsevol conflicte amb la normativa acadèmica i protegim la reputació del projecte.</p>
+
+<h2 id="economic"><span class="num">10</span>Pla econòmic</h2>
+<div class="note">Les xifres són estimacions pròpies, fetes amb preus de mercat orientatius de novembre de 2026. Cal revisar-les amb pressuposts reals de proveïdors.</div>
+<h3>Supòsits principals</h3>
+<table>
+<tr><th></th><th class="n">Any 1 · curs 27-28</th><th class="n">Any 2 · curs 28-29</th><th class="n">Any 3 · curs 29-30</th></tr>
+<tr><td>Centres nous</td><td class="n">8</td><td class="n">16</td><td class="n">26</td></tr>
+<tr><td>Centres totals</td><td class="n">8</td><td class="n">24</td><td class="n">50</td></tr>
+<tr><td>Aules noves</td><td class="n">24</td><td class="n">56</td><td class="n">100</td></tr>
+<tr><td>Aules actives (subscripció)</td><td class="n">24</td><td class="n">80</td><td class="n">180</td></tr>
+<tr><td>Jornades de kit portàtil</td><td class="n">10</td><td class="n">30</td><td class="n">60</td></tr>
+<tr><td>Persones a l'equip</td><td class="n">1</td><td class="n">2</td><td class="n">3</td></tr>
+</table>
+<p>Per simplificar, calculam amb els preus del pla Plus, que és el que esperam que contracti la majoria. Tota la subscripció de l'any es compta perquè les instal·lacions es fan abans de començar el curs.</p>
+
+<h3>Compte de resultats previst</h3>
+<table>
+<tr><th>Ingressos</th><th class="n">Any 1</th><th class="n">Any 2</th><th class="n">Any 3</th></tr>
+<tr><td>Altes de centre (servidor inclòs)</td><td class='n'>15.200 €</td><td class='n'>30.400 €</td><td class='n'>49.400 €</td></tr><tr><td>Instal·lacions d'aula</td><td class='n'>33.600 €</td><td class='n'>78.400 €</td><td class='n'>140.000 €</td></tr><tr><td>Subscripcions anuals</td><td class='n'>16.560 €</td><td class='n'>55.200 €</td><td class='n'>124.200 €</td></tr><tr><td>Lloguer de kit per a certificacions</td><td class='n'>3.500 €</td><td class='n'>10.500 €</td><td class='n'>21.000 €</td></tr>
+<tr class="tot"><td>Total ingressos</td><td class="n">68.860 €</td><td class="n">174.500 €</td><td class="n">334.600 €</td></tr>
+<tr><th>Despeses</th><th></th><th></th><th></th></tr>
+<tr><td>Servidors d'inferència (1 per centre nou)</td><td class='n'>12.800 €</td><td class='n'>25.600 €</td><td class='n'>41.600 €</td></tr><tr><td>Material d'aula (càmeres, PoE, tauleta i carcassa)</td><td class='n'>19.200 €</td><td class='n'>44.800 €</td><td class='n'>80.000 €</td></tr><tr><td>Personal (sous i Seguretat Social)</td><td class='n'>24.000 €</td><td class='n'>52.000 €</td><td class='n'>84.000 €</td></tr><tr><td>Entrenament del model (GPU, etiquetatge, recompenses)</td><td class='n'>6.000 €</td><td class='n'>6.000 €</td><td class='n'>8.000 €</td></tr><tr><td>Màrqueting i fires</td><td class='n'>4.000 €</td><td class='n'>8.000 €</td><td class='n'>15.000 €</td></tr><tr><td>Manteniment, garantia i recanvis</td><td class='n'>1.500 €</td><td class='n'>3.500 €</td><td class='n'>7.000 €</td></tr><tr><td>Gestoria, assegurances i assessorament legal (RGPD/AI Act)</td><td class='n'>5.000 €</td><td class='n'>6.000 €</td><td class='n'>8.000 €</td></tr><tr><td>Desplaçaments</td><td class='n'>1.500 €</td><td class='n'>4.000 €</td><td class='n'>10.000 €</td></tr><tr><td>Servidor central, web i actualitzacions</td><td class='n'>1.200 €</td><td class='n'>2.400 €</td><td class='n'>4.000 €</td></tr><tr><td>Amortització de kits portàtils i equips de demo</td><td class='n'>1.500 €</td><td class='n'>1.500 €</td><td class='n'>3.000 €</td></tr>
+<tr class="tot"><td>Total despeses</td><td class="n">76.700 €</td><td class="n">153.800 €</td><td class="n">260.600 €</td></tr>
+<tr class="tot"><td>Resultat abans d'impostos</td><td class="n neg">−7.840 €</td><td class="n pos">20.700 €</td><td class="n pos">74.000 €</td></tr>
+<tr><td>Impost de societats (15 %, empresa de nova creació)</td><td class="n">0 €</td><td class="n">1.929 €</td><td class="n">11.100 €</td></tr>
+<tr class="tot"><td>Resultat net</td><td class="n neg">−7.840 €</td><td class="n pos">18.771 €</td><td class="n pos">62.900 €</td></tr>
+<tr><td>Resultat net acumulat</td><td class="n neg">−7.840 €</td><td class="n pos">10.931 €</td><td class="n pos">73.831 €</td></tr>
+</table>
+
+<div class="chart">
+<div class="legend"><span style="background:var(--stone)"></span>Ingressos <span style="background:#7a8691"></span>Despeses &nbsp;·&nbsp; a la dreta, resultat abans d'impostos</div>
+<div class='crow'><div class='clab'>Any 1</div><div class='cbars'><div class='bar bi' style='width:20.6%'><span>68.860 €</span></div><div class='bar bc' style='width:22.9%'><span>76.700 €</span></div></div><div class='cres neg'>−7.840 €</div></div><div class='crow'><div class='clab'>Any 2</div><div class='cbars'><div class='bar bi' style='width:52.2%'><span>174.500 €</span></div><div class='bar bc' style='width:46.0%'><span>153.800 €</span></div></div><div class='cres pos'>20.700 €</div></div><div class='crow'><div class='clab'>Any 3</div><div class='cbars'><div class='bar bi' style='width:100.0%'><span>334.600 €</span></div><div class='bar bc' style='width:77.9%'><span>260.600 €</span></div></div><div class='cres pos'>74.000 €</div></div>
+</div>
+
+<h3>Per què és rendible</h3>
+<ul>
+<li><b>La instal·lació paga el material.</b> Cada aula Plus es cobra a 1.400 € i el material en costa 800 €. L'alta de centre (1.900 €) cobreix el servidor (1.600 €). No hem d'avançar diners per créixer.</li>
+<li><b>La subscripció és ingrés recurrent amb marge alt.</b> Cada aula deixa 690 € l'any i només costa devers 60 € en manteniment. En 5 anys, una aula Plus aporta devers <b>3.750 €</b> de marge.</li>
+<li><b>Els ingressos recurrents s'acumulen.</b> L'any 3, només les subscripcions ja aporten 124.200 €.</li>
+<li><b>Punt d'equilibri:</b> amb els costos fixos de l'any 2, bastarien devers <b>132 aules actives</b> per cobrir-los només amb subscripcions, sense comptar instal·lacions. L'any 3 ja en tenim 180: a partir d'aquí el negoci es sosté tot sol encara que no s'instal·lin aules noves.</li>
+<li><b>Primer any gairebé en equilibri:</b> el resultat de l'any 1 (−7.840 €) es cobreix amb la inversió inicial, i l'any 2 ja deixa benefici.</li>
+</ul>
+
+<h3>Inversió inicial i finançament</h3>
+<table>
+<tr><th>Necessitat</th><th class="n">Import</th></tr>
+<tr><td>2 kits portàtils de demostració</td><td class="n">5.000 €</td></tr>
+<tr><td>Estoc inicial de material (2 aules i 1 servidor)</td><td class="n">3.200 €</td></tr>
+<tr><td>Constitució de la SL, marca, assessorament legal inicial (AIPD, contractes)</td><td class="n">2.500 €</td></tr>
+<tr><td>Entrenament del model i segon pilot</td><td class="n">4.000 €</td></tr>
+<tr><td>Tresoreria per cobrir el resultat de l'any 1 i imprevists</td><td class="n">10.300 €</td></tr>
+<tr class="tot"><td>Total</td><td class="n">25.000 €</td></tr>
+</table>
+<table>
+<tr><th>Font</th><th class="n">Import</th></tr>
+<tr><td>Aportació dels socis</td><td class="n">5.000 €</td></tr>
+<tr><td>Ajudes públiques a l'emprenedoria i la innovació (Govern de les Balears, IDI) i premis d'emprenedoria</td><td class="n">10.000 €</td></tr>
+<tr><td>Préstec per a joves emprenedors (ENISA o entitat bancària)</td><td class="n">10.000 €</td></tr>
+<tr class="tot"><td>Total</td><td class="n">25.000 €</td></tr>
+</table>
+
+<h2 id="dafo"><span class="num">11</span>DAFO</h2>
+<div class="swot">
+<div class="s"><h4>Fortaleses</h4><ul><li>Pilot real amb un cas d'èxit verificat</li><li>Privacitat des del disseny i processament local</li><li>Arquitectura per capes, auditable</li><li>Costos baixos i coneixement tècnic propi</li><li>Proximitat i idioma</li></ul></div>
+<div class="w"><h4>Debilitats</h4><ul><li>Equip petit i jove, poca experiència comercial</li><li>Precisió del model encara en validació</li><li>Dataset petit</li><li>Depenem d'una sola persona clau</li></ul></div>
+<div class="o"><h4>Oportunitats</h4><ul><li>Creixement de les trampes amb IA i mòbils</li><li>Gairebé no hi ha competència en exàmens presencials</li><li>Les certificacions i les oposicions demanen garanties</li><li>Expansió a territoris de parla catalana i a la resta d'Espanya</li><li>Ajudes a startups tecnològiques</li></ul></div>
+<div class="t"><h4>Amenaces</h4><ul><li>Rebuig social a la "vigilància" a l'aula</li><li>Exigències de l'AI Act (cost de certificació)</li><li>Compra pública lenta</li><li>Una gran empresa de <i>proctoring</i> podria entrar a l'aula presencial</li><li>Falses alertes que facin perdre la confiança</li></ul></div>
+</div>
+
+<h2 id="riscos"><span class="num">12</span>Riscos i mesures</h2>
+<table>
+<tr><th>Risc</th><th>Impacte</th><th>Mesura</th></tr>
+<tr><td>El model no arriba a la precisió necessària</td><td>Alt</td><td>Arquitectura per capes, dataset del pilot, llançament comercial només quan es compleixin els objectius</td></tr>
+<tr><td>Rebuig de l'alumnat o de les famílies</td><td>Mitjà</td><td>Comunicar que no es grava ni s'identifica ningú, i que decideix el docent. Cartells i FAQ</td></tr>
+<tr><td>Cost de complir l'AI Act</td><td>Mitjà</td><td>Documentació des del principi, assessorament especialitzat i pressupost anual dedicat</td></tr>
+<tr><td>Vendes més lentes del previst</td><td>Mitjà</td><td>Costos variables (el material es compra en vendre), kit portàtil per a ingressos ràpids, personal contractat de manera progressiva</td></tr>
+<tr><td>Dependència del fundador</td><td>Alt</td><td>Documentar el codi i els processos, i incorporar socis tècnics de l'equip</td></tr>
+<tr><td>Avaria el dia d'un examen</td><td>Mitjà</td><td>Monitoratge remot, recanvis a Mallorca i suport reforçat en període d'exàmens</td></tr>
+</table>
+
+<h2 id="calendari"><span class="num">13</span>Calendari i fites</h2>
+<table>
+<tr><th>Quan</th><th>Fita</th></tr>
+<tr><td>Desembre 2026</td><td>Capes 0 i 1 validades. Pla de negoci presentat a IBEmpren</td></tr>
+<tr><td>Març 2027</td><td>Capa 2 funcionant en exàmens simulats. Sol·licitud d'ajudes</td></tr>
+<tr><td>Juny 2027</td><td>Segon pilot (edibFleming i un centre més). Primers contractes signats</td></tr>
+<tr><td>Juliol 2027</td><td>Constitució de la SL. Versió comercial 1.0</td></tr>
+<tr><td>Setembre 2027</td><td>8 centres i 24 aules instal·lades per al curs 27-28</td></tr>
+<tr><td>Curs 28-29</td><td>Contractació del tècnic. 24 centres. Primer any amb benefici</td></tr>
+<tr><td>Curs 29-30</td><td>Expansió fora de les Balears. 50 centres i 180 aules</td></tr>
+</table>
+
+<h3>Indicadors que seguirem</h3>
+<ul>
+<li>Percentatge de casos detectats i falses alertes per examen.</li>
+<li>Demos fetes i percentatge de demos que es converteixen en clients.</li>
+<li>Aules actives i renovació de subscripcions (objectiu: més del 90 %).</li>
+<li>Temps mitjà de resposta del suport.</li>
+<li>Satisfacció del professorat (enquesta en acabar cada convocatòria).</li>
+</ul>
+
+<footer>TalAIot · un projecte de MainLab · talaiot.eu · main@mainlab.es<br>
+Document elaborat el novembre de 2026. Les previsions econòmiques són estimacions i s'han de revisar amb dades reals.</footer>
+</div>
+</body>
+</html>

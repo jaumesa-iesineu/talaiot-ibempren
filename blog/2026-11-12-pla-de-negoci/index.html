@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hem escrit el pla de negoci - Blog TalAIot IBEmpren</title>
+  <link rel="stylesheet" href="../style.css">
+  <script>
+    (function () {
+      const t = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <script src="../theme.js" defer></script>
+</head>
+
+<body>
+  <main class="post">
+    <div class="nav-top">
+      <p class="tornar"><a href="../../index.html">&larr; Blog</a></p>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Canvia el tema" title="Canvia el tema (clar/fosc)">
+        <svg class="icon-dark" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+        <svg class="icon-light" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+      </button>
+    </div>
+    <h1>Hem escrit el pla de negoci</h1>
+    <p class="data">12/11/2026</p>
+
+    <p>Avui hem fet un pas important: hem escrit el <strong>pla de negoci de Tal<span style="color: #a855f7; font-weight: 800;">AI</span>ot</strong>. Fins ara el projecte era
+      sobretot tècnic (càmeres, punts clau, capes i models). Ara també té per escrit qui són els clients, quin problema
+      resolem, com ho fem, quin és el model econòmic i quins riscos hi ha.</p>
+
+    <h2>Què hi trobaràs</h2>
+    <ol class="passos">
+      <li><strong>Qui som i el problema:</strong> d'on surt la idea i per què importa.</li>
+      <li><strong>La solució i el Business Model Canvas:</strong> com funciona Tal<span style="color: #a855f7; font-weight: 800;">AI</span>ot i com es converteix en negoci.</li>
+      <li><strong>Mercat, competència i vendes:</strong> a qui ens adrecem i què ens diferencia.</li>
+      <li><strong>Marc legal i ètic:</strong> dades xifrades i sense sancionar alumnes.</li>
+      <li><strong>Pla econòmic, DAFO, riscos i calendari:</strong> les xifres i les fites del 2027 al 2030.</li>
+    </ol>
+
+    <div class="avis">
+      <strong>Nota:</strong> el pla és un document viu. Anirem corregint-lo a mesura que validem hipòtesis i
+      aprenguem de les proves reals.
+    </div>
+
+    <p>Pots llegir-lo sencer des del botó següent. A més, des d'ara el trobaràs sempre a la capçalera de la pàgina
+      principal del blog.</p>
+
+    <p><a class="boto-pla" href="../../pla-de-negoci/index.html">Veure el pla de negoci &rarr;</a></p>
+  </main>
+</body>
+
+</html>
