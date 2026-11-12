@@ -257,3 +257,14 @@ code {
 .boto-pla:hover {
   opacity: 0.85;
 }
+
+.botons-pla {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.nav-accions {
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
