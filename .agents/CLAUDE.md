@@ -9,7 +9,7 @@ Aquest document estableix les directrius, l'arquitectura i les bones pràctiques
 - **Projecte:** Talaiot (marca: **Tal<span style="color: #a855f7; font-weight: 800;">AI</span>ot**)
 - **Àmbit:** Projecte Intermodular del Cicle Formatiu de Grau Superior DAM (Desenvolupament d'Aplicacions Multiplataforma), vinculat al programa **IBEmpren** a l'IES Sineu.
 - **Objectiu:** Desenvolupar un sistema basat en visió per computador i intel·ligència artificial per a la detecció de conductes irregulars o trampes en exàmens presencials mitjançant càmeres zenitals (instal·lades al sostre de l'aula).
-- **Publicació del lloc web:** Cada `push` a la branca `main` es publica automàticament a [https://talaiot.eu/ibempren/](https://talaiot.eu/ibempren/) (subdomini: `ibempren.talaiot.eu`).
+- **Publicació del lloc web:** Cada `push` a la branca `main` es publica automàticament a [https://ibempren.talaiot.eu/](https://ibempren.talaiot.eu/). És l'única adreça del lloc: és un projecte independent de la web de TalAIot.
 
 ### Pilars Tècnics del Sistema
 1. **Model Directe vs. Arquitectura Modular:**
